@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Produk | Kicksy.id</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Coda+Caption:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="gradient-bg">
+
+<header class="header">
+  <div class="bar top">
+    <div class="left">
+      <a href="#">bantuan</a>
+      <a href="#">pelacak pesanan</a>
+      <a href="#">kicksyclub</a>
+    </div>
+  </div>
+  <div class="bar main">
+    <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer">KICKSY</div>
+    <div class="actions">
+      <div class="search">
+        <input id="searchInput" type="text" placeholder="Cari produk..." />
+        <span class="ico">🔍</span>
+      </div>
+      <div class="user-btn-container">
+        <button class="icon-btn" onclick="userButtonClick()">👤</button>
+      </div>
+      <button class="icon-btn" id="wishlistBtn">♡</button>
+      <button class="icon-btn" onclick="openBag()">
+        <span>🛒</span>
+        <span class="badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="bar sub">
+    <a href="index.html">Home</a>
+    <a href="shop.html" class="active">Katalog</a>
+    <a href="index.html#promo">Promo</a>
+    <a href="index.html#best">Best Seller</a>
+  </div>
+</header>
+
+<section id="catalog" class="catalog" style="padding-top: 6rem;">
+  <div class="catalog-head">
+    <div class="filters">
+      <button class="pill active" id="pillAll" onclick="setCatalog('all')">Semua</button>
+      <button class="pill" id="pillBrand" onclick="setCatalog('brand')">Brand</button>
+      <button class="pill" id="pillLokal" onclick="setCatalog('lokal')">Lokal</button>
+    </div>
+    <h2>Koleksi Lengkap</h2>
+  </div>
+
+  <div class="catalog-grid">
+    <!-- Brand Products -->
+    <div class="tile" data-cat="brand" onclick="openDetail('Nike Dunk Low Retro Panda',1599000,'images/Nike Dunk Low Retro White Black Panda.png')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Nike Dunk Low Retro Panda')">♡</button>
+      <img src="images/Nike Dunk Low Retro White Black Panda.png" alt="Nike Dunk Low Panda">
+      <div class="price">Rp 1.599.000</div>
+      <div class="name">Nike Dunk Low Retro Panda</div>
+      <div class="sub">Originals</div>
+    </div>
+
+    <div class="tile" data-cat="brand" onclick="openDetail('Nike P-6000 Metallic Silver Sail',1799000,'images/Nike P-6000 Metallic Silver Sail.png')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Nike P-6000 Metallic Silver Sail')">♡</button>
+      <img src="images/Nike P-6000 Metallic Silver Sail.png" alt="Nike P-6000 Metallic Silver Sail">
+      <div class="price">Rp 1.799.000</div>
+      <div class="name">Nike P-6000 Metallic Silver Sail</div>
+      <div class="sub">Originals</div>
+    </div>
+
+    <div class="tile" data-cat="brand" onclick="openDetail('Adizero EVO SL Black',1899000,'images/Adizero EVO SL Black.avif')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Adizero EVO SL Black')">♡</button>
+      <img src="images/Adizero EVO SL Black.avif" alt="Adizero EVO SL Black">
+      <div class="price">Rp 1.899.000</div>
+      <div class="name">Adizero EVO SL Black</div>
+      <div class="sub">Originals</div>
+    </div>
+
+    <div class="tile" data-cat="brand" onclick="openDetail('Puma Speedcat OG Black White',1499000,'images/Puma Speedcat OG Black White.png')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Puma Speedcat OG Black White')">♡</button>
+      <img src="images/Puma Speedcat OG Black White.png" alt="Puma Speedcat OG Black White">
+      <div class="price">Rp 1.499.000</div>
+      <div class="name">Puma Speedcat OG Black White</div>
+      <div class="sub">Originals</div>
+    </div>
+
+    <div class="tile" data-cat="brand" onclick="openDetail('Puma Speedcat OG Red White',1499000,'images/Puma Speedcat OG Red White.png')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Puma Speedcat OG Red White')">♡</button>
+      <img src="images/Puma Speedcat OG Red White.png" alt="Puma Speedcat OG Red White">
+      <div class="price">Rp 1.499.000</div>
+      <div class="name">Puma Speedcat OG Red White</div>
+      <div class="sub">Originals</div>
+    </div>
+
+    <div class="tile" data-cat="brand" onclick="openDetail('Salomon XT-6 GORE-TEX Black Silver',2699000,'images/Salomon XT-6 GORE-TEX Black Silver.png')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Salomon XT-6 GORE-TEX Black Silver')">♡</button>
+      <img src="images/Salomon XT-6 GORE-TEX Black Silver.png" alt="Salomon XT-6 GORE-TEX Black Silver">
+      <div class="price">Rp 2.699.000</div>
+      <div class="name">Salomon XT-6 GORE-TEX Black Silver</div>
+      <div class="sub">Originals</div>
+    </div>
+
+    <div class="tile" data-cat="brand" onclick="openDetail('Onitsuka Tiger TOKUTEN',1499000,'images/Onitsuka Tiger TOKUTEN.webp')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Onitsuka Tiger TOKUTEN')">♡</button>
+      <img src="images/Onitsuka Tiger TOKUTEN.webp" alt="Onitsuka Tiger TOKUTEN">
+      <div class="price">Rp 1.499.000</div>
+      <div class="name">Onitsuka Tiger TOKUTEN</div>
+      <div class="sub">Originals</div>
+    </div>
+
+    <div class="tile" data-cat="brand" onclick="openDetail('Adidas Handball Spezial',1699000,'images/Adidas Handball Spezial Blue.avif')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Adidas Handball Spezial')">♡</button>
+      <img src="images/Adidas Handball Spezial Blue (2).avif" alt="Adidas Handball Spezial">
+      <div class="price">Rp 1.699.000</div>
+      <div class="name">Adidas Handball Spezial</div>
+      <div class="sub">Originals</div>
+    </div>
+
+    <div class="tile" data-cat="brand" onclick="openDetail('New Balance 574 trainers',1399000,'images/new-balance-574-trainers.webp')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('New Balance 574 trainers')">♡</button>
+      <img src="images/new-balance-574-trainers (2).webp" alt="New Balance 574 trainers">
+      <div class="price">Rp 1.399.000</div>
+      <div class="name">New Balance 574 trainers</div>
+      <div class="sub">Originals</div>
+    </div>
+
+    <div class="tile" data-cat="brand" onclick="openDetail('CONVERSE RUN STAR TRAINER OX SNEAKERS',1165000,'images/CONVERSE RUN STAR TRAINER OX SNEAKERS.jpeg')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('CONVERSE RUN STAR TRAINER OX SNEAKERS')">♡</button>
+      <img src="images/CONVERSE RUN STAR TRAINER OX SNEAKERS.jpeg" alt="CONVERSE RUN STAR TRAINER OX SNEAKERS">
+      <div class="price">Rp 1.165.000</div>
+      <div class="name">CONVERSE RUN STAR TRAINER OX SNEAKERS</div>
+      <div class="sub">Originals</div>
+    </div>
+
+    <div class="tile" data-cat="brand" onclick="openDetail('ADIDAS ORIGINALS SAMBA JANE',1500000,'images/ADIDAS ORIGINALS SAMBA JANE.jpeg')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('ADIDAS ORIGINALS SAMBA JANE')">♡</button>
+      <img src="images/ADIDAS ORIGINALS SAMBA JANE.jpeg" alt="ADIDAS ORIGINALS SAMBA JANE">
+      <div class="price">Rp 1.500.000</div>
+      <div class="name">ADIDAS ORIGINALS SAMBA JANE</div>
+      <div class="sub">Originals</div>
+    </div>
+
+    <div class="tile" data-cat="brand" onclick="openDetail('Samba Shoes Black',1800000,'images/Samba Shoes Black.avif')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Samba Shoes Black')">♡</button>
+      <img src="images/Samba Shoes Black.avif" alt="Samba Shoes Black">
+      <div class="price">Rp 1.800.000</div>
+      <div class="name">Samba Shoes Black</div>
+      <div class="sub">Originals</div>
+    </div>
+
+    <!-- Lokal Products -->
+    <div class="tile" data-cat="lokal" onclick="openDetail('Kanky x STAPLE EXC 01 Gosht White',540000,'images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_a_1761195600198_resized1024-jpg.webp','lokal')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Kanky x STAPLE EXC 01 Gosht White')">♡</button>
+      <img src="images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_a_1761195600198_resized1024-jpg.webp" alt="Kanky x STAPLE EXC 01 Gosht White">
+      <div class="price">Rp 540.000</div>
+      <div class="name">Kanky x STAPLE EXC 01 Gosht White</div>
+      <div class="sub">Lokal</div>
+    </div>
+
+    <div class="tile" data-cat="lokal" onclick="openDetail('Kanky Story Kitadake - Kanky Sportstyle',440000,'images lokal/Kitadake___All_Black_a_1760412869132_resized1024-jpg.webp','lokal')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Kanky Story Kitadake - Kanky Sportstyle')">♡</button>
+      <img src="images lokal/Kitadake___All_Black_a_1760412869132_resized1024-jpg.webp" alt="Kanky Story Kitadake - Kanky Sportstyle">
+      <div class="price">Rp 440.000</div>
+      <div class="name">Kanky Story Kitadake - Kanky Sportstyle</div>
+      <div class="sub">Lokal</div>
+    </div>
+
+    <div class="tile" data-cat="lokal" onclick="openDetail('CARDINAL SNEAKERS',399000,'images lokal/CARDINAL SNEAKERS.jpeg','lokal')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('CARDINAL SNEAKERS')">♡</button>
+      <img src="images lokal/CARDINAL SNEAKERS.jpeg" alt="CARDINAL SNEAKERS">
+      <div class="price">Rp 269.000</div>
+      <div class="name">CARDINAL SNEAKERS</div>
+      <div class="sub">Lokal</div>
+    </div>
+
+    <div class="tile" data-cat="lokal" onclick="openDetail('Compas Tribune Mankind Black',758000,'images lokal/Compas Tribune Mankind Black.webp','lokal')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Compas Tribune Mankind Black')">♡</button>
+      <img src="images lokal/Compas Tribune Mankind Black.webp" alt="Compas Tribune Mankind Black">
+      <div class="price">Rp 758,000</div>
+      <div class="name">Compas Tribune Mankind Black</div>
+      <div class="sub">Lokal</div>
+    </div>
+
+    <div class="tile" data-cat="lokal" onclick="openDetail('Compas Tribune Away Maroon',648000,'images lokal/Compas Tribune Away Maroon.webp','lokal')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Compas Tribune Away Maroon')">♡</button>
+      <img src="images lokal/Compas Tribune Away Maroon.webp" alt="Compas Tribune Away Maroon">
+      <div class="price">Rp 648.000</div>
+      <div class="name">Compas Tribune Away Maroon</div>
+      <div class="sub">Lokal</div>
+    </div>
+
+    <div class="tile" data-cat="lokal" onclick="openDetail('DR.KEVIN SNEAKERS',145000,'images lokal/DR.KEVIN SNEAKERS.jpeg','lokal')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('DR.KEVIN SNEAKERS')">♡</button>
+      <img src="images lokal/DR.KEVIN SNEAKERS.jpeg" alt="DR.KEVIN SNEAKERS">
+      <div class="price">Rp 145.000</div>
+      <div class="name">DR.KEVIN SNEAKERS</div>
+      <div class="sub">Lokal</div>
+    </div>
+
+    <div class="tile" data-cat="lokal" onclick="openDetail('UNDER ARMOUR ESSENTIAL.jpeg',953000,'images lokal/UNDER ARMOUR ESSENTIAL.jpeg','lokal')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('UNDER ARMOUR ESSENTIAL')">♡</button>
+      <img src="images lokal/UNDER ARMOUR ESSENTIAL.jpeg" alt="UNDER ARMOUR ESSENTIAL">
+      <div class="price">Rp 953.000</div>
+      <div class="name">UNDER ARMOUR ESSENTIAL</div>
+      <div class="sub">Lokal</div>
+    </div>
+
+    <div class="tile" data-cat="lokal" onclick="openDetail('Brodo Ace Nexus X NAH Serenity White OWS',599000,'images lokal/Brodo Ace Nexus X NAH Serenity White OWS.webp','lokal')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Brodo Ace Nexus X NAH Serenity White OWS')">♡</button>
+      <img src="images lokal/Brodo Ace Nexus X NAH Serenity White OWS.webp" alt="Brodo Ace Nexus X NAH Serenity White OWS">
+      <div class="price">Rp 599.000</div>
+      <div class="name">Brodo Ace Nexus X NAH Serenity White OWS</div>
+      <div class="sub">Lokal</div>
+    </div>
+  </div>
+  <div id="catalogEmpty" class="empty-hint">Belum ada produk kategori ini</div>
+</section>
+
+<div id="bagBackdrop" class="bag-backdrop" onclick="closeBag()"></div>
+<div id="bagDrawer" class="bag-drawer">
+  <div class="bag-head">
+    <div>Tas Belanja</div>
+    <button class="close" onclick="closeBag()">×</button>
+  </div>
+  <div id="bagItems" class="bag-items"></div>
+  <div class="bag-foot">
+    <div class="totals">Total: <span id="bagTotal">Rp 0</span></div>
+    <div class="actions">
+      <button class="btn" onclick="goToCart()">Lihat Keranjang</button>
+    </div>
+  </div>
+  <div class="bag-empty" id="bagEmpty">Tas belanja kosong</div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">KICKSY</div>
+      <p>Destinasi utama sneakerhead Indonesia untuk koleksi brand global dan lokal terbaik.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Belanja</h4>
+      <a href="shop.html">Katalog</a>
+      <a href="index.html#promo">Promo</a>
+      <a href="index.html#best">Best Seller</a>
+    </div>
+    <div class="footer-links">
+      <h4>Bantuan</h4>
+      <a href="#">FAQ</a>
+      <a href="#">Pengiriman</a>
+      <a href="#">Kebijakan Pengembalian</a>
+    </div>
+    <div class="footer-links">
+      <h4>Ikuti Kami</h4>
+      <a href="https://instagram.com/kicksy.id">Instagram</a>
+      <a href="https://tiktok.com/@kicksy.id">TikTok</a>
+      <a href="https://wa.me/6287825462321">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 kicksy.id — All Rights Reserved</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

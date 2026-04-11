@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kicksy.id — Streetwear Sneakers</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Coda+Caption:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="bar top">
+    <div class="left">
+      <a href="#">bantuan</a>
+      <a href="#">pelacak pesanan</a>
+      <a href="#">kicksyclub</a>
+    </div>
+  </div>
+  <div class="bar main">
+    <div class="logo">KICKSY</div>
+    <div class="actions">
+      <div class="search">
+        <input id="searchInput" type="text" placeholder="Cari produk..." />
+        <span class="ico">🔍</span>
+      </div>
+      <div class="user-btn-container">
+        <button class="icon-btn" onclick="userButtonClick()">👤</button>
+      </div>
+      <button class="icon-btn" id="wishlistBtn">♡</button>
+      <button class="icon-btn" onclick="openBag()">
+        <span>🛒</span>
+        <span class="badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="bar sub">
+    <a href="index.html" class="active">Home</a>
+    <a href="shop.html">Katalog</a>
+    <a href="#promo">Promo</a>
+    <a href="#best">Best Seller</a>
+    <a href="#about">Tentang</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Streetwear Stars<br> From Your Feet</h1>
+    <p>Dapatkan koleksi sneakers terbaik dari brand global hingga lokal hanya di Kicksy.id</p>
+    <div class="hero-btns">
+      <a href="shop.html" class="btn">Belanja Sekarang</a>
+      <a href="#about" class="btn outline">Tentang Kami</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="features">
+  <div class="feature-item">
+    <span class="feat-icon">🚚</span>
+    <h3>Gratis Ongkir</h3>
+    <p>Untuk pembelian di atas Rp 1 Juta</p>
+  </div>
+  <div class="feature-item">
+    <span class="feat-icon">🛡️</span>
+    <h3>100% Original</h3>
+    <p>Jaminan keaslian produk atau uang kembali</p>
+  </div>
+  <div class="feature-item">
+    <span class="feat-icon">🔄</span>
+    <h3>Mudah Tukar</h3>
+    <p>Kebijakan penukaran size dalam 7 hari</p>
+  </div>
+</section>
+
+<div class="promo-bar">
+  <div class="wrap">
+    <span class="tag">Promo</span>
+    <span>Diskon Lokal 10% Minggu Ini · Kode: KICKSY10</span>
+    <button class="pill" onclick="setCatalog('lokal')">Belanja Lokal</button>
+  </div>
+</div>
+
+<section class="product-section promo-section" id="promo">
+  <h2>Promo Minggu Ini</h2>
+  <div class="products promo-grid">
+    <div class="card promo-card" onclick="openDetail('Kanky x STAPLE EXC 01 Gosht White',540000,'images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_a_1761195600198_resized1024-jpg.webp','lokal')">
+      <div class="badge-promo">-10%</div>
+      <div class="promo-images">
+        <img src="images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_a_1761195600198_resized1024-jpg.webp" alt="Kanky x STAPLE 1">
+        <img src="images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_b_1761195600281_resized1024 4-jpg.webp" alt="Kanky x STAPLE 2">
+        <img src="images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_d_1761195600428_resized1024 2-jpg.webp" alt="Kanky x STAPLE 3">
+      </div>
+      <div class="title">Kanky x STAPLE EXC 01 Gosht White</div>
+      <div class="price-row">
+        <span class="price-old">Rp 600.000</span>
+        <span class="price">Rp 540.000</span>
+      </div>
+      <button class="btn" onclick="event.stopPropagation(); addToCart('Kanky x STAPLE EXC 01 Gosht White',540000,'images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_a_1761195600198_resized1024-jpg.webp')">Add to Cart</button>
+    </div>
+    <div class="card promo-card" onclick="openDetail('Kanky Story Kitadake - Kanky Sportstyle',440000,'images lokal/Kitadake___All_Black_a_1760412869132_resized1024-jpg.webp','lokal')">
+      <div class="badge-promo">-10%</div>
+      <div class="promo-images">
+        <img src="images lokal/Kitadake___All_Black_a_1760412869132_resized1024-jpg.webp" alt="Kitadake 1">
+        <img src="images lokal/Kitadake___All_Black_b_1760412869223_resized1024 3-jpg.webp" alt="Kitadake 2">
+        <img src="images lokal/Kitadake___All_Black_c_1760412869283_resized1024 2-jpg.webp" alt="Kitadake 3">
+      </div>
+      <div class="title">Kanky Story Kitadake</div>
+      <div class="price-row">
+        <span class="price-old">Rp 490.000</span>
+        <span class="price">Rp 440.000</span>
+      </div>
+      <button class="btn" onclick="event.stopPropagation(); addToCart('Kanky Story Kitadake - Kanky Sportstyle',440000,'images lokal/Kitadake___All_Black_a_1760412869132_resized1024-jpg.webp')">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT SLIDER -->
+<section class="product-section">
+  <h2>Recommended For You</h2>
+
+  <div class="slider-wrapper">
+    <button class="slide-btn left" onclick="slideLeft()">‹</button>
+
+    <div class="product-slider" id="slider">
+      <div class="product-card" onclick="openDetail('Nike Dunk Low Retro Panda',1599000,'images/Nike Dunk Low Retro White Black Panda.png')">
+        <img src="images/Nike Dunk Low Retro White Black Panda.png">
+        <h3>Nike Dunk Low Retro Panda</h3>
+        <p class="variant">Sneakers Shoes · Black/White</p>
+        <p class="price">Rp 1.599.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Nike Dunk Low Retro Panda',1599000,'images/Nike Dunk Low Retro White Black Panda.png')">Add to Cart</button>
+      </div>
+      <div class="product-card" onclick="openDetail('Nike P-6000 Metallic Silver Sail',1799000,'images/Nike P-6000 Metallic Silver Sail.png')">
+        <img src="images/Nike P-6000 Metallic Silver Sail.png">
+        <h3>Nike P-6000 Metallic Silver Sail</h3>
+        <p class="variant">Sneakers Shoes · Silver</p>
+        <p class="price">Rp 1.799.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Nike P-6000 Metallic Silver Sail',1799000,'images/Nike P-6000 Metallic Silver Sail.png')">Add to Cart</button>
+      </div>
+      <div class="product-card" onclick="openDetail('Adizero EVO SL Black',1899000,'images/Adizero EVO SL Black.avif')">
+        <img src="images/Adizero EVO SL Black.avif">
+        <h3>Adizero EVO SL Black</h3>
+        <p class="variant">Running · Black</p>
+        <p class="price">Rp 1.899.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Adizero EVO SL Black',1899000,'images/Adizero EVO SL Black.avif')">Add to Cart</button>
+      </div>
+      <div class="product-card" onclick="openDetail('Puma Speedcat OG Black White',1499000,'images/Puma Speedcat OG Black White.png')">
+        <img src="images/Puma Speedcat OG Black White.png">
+        <h3>Puma Speedcat OG Black White</h3>
+        <p class="variant">Motorsport · Black/White</p>
+        <p class="price">Rp 1.499.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Puma Speedcat OG Black White',1499000,'images/Puma Speedcat OG Black White.png')">Add to Cart</button>
+      </div>
+      <div class="product-card" onclick="openDetail('Puma Speedcat OG Red White',1499000,'images/Puma Speedcat OG Red White.png')">
+        <img src="images/Puma Speedcat OG Red White.png">
+        <h3>Puma Speedcat OG Red White</h3>
+        <p class="variant">Motorsport · Red/White</p>
+        <p class="price">Rp 1.499.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Puma Speedcat OG Red White',1499000,'images/Puma Speedcat OG Red White.png')">Add to Cart</button>
+      </div>
+      <div class="product-card" onclick="openDetail('Salomon XT-6 GORE-TEX Black Silver',2699000,'images/Salomon XT-6 GORE-TEX Black Silver.png')">
+        <img src="images/Salomon XT-6 GORE-TEX Black Silver.png">
+        <h3>Salomon XT-6 GORE-TEX Black Silver</h3>
+        <p class="variant">Trail · Black/Silver</p>
+        <p class="price">Rp 2.699.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Salomon XT-6 GORE-TEX Black Silver',2699000,'images/Salomon XT-6 GORE-TEX Black Silver.png')">Add to Cart</button>
+      </div>
+    </div>
+
+    <button class="slide-btn right" onclick="slideRight()">›</button>
+  </div>
+</section>
+
+<!-- BEST SELLER -->
+  <section id="best">
+    <h2>🔥 Best Seller</h2>
+
+    <div class="products">
+      <div class="card" onclick="openDetail('Onitsuka Tiger TOKUTEN',1499000,'images/Onitsuka Tiger TOKUTEN.webp')">
+        <img src="images/Onitsuka Tiger TOKUTEN.webp">
+        <div class="title">Onitsuka Tiger TOKUTEN</div>
+        <div class="price">Rp 1.499.000</div>
+        <button class="btn" onclick="event.stopPropagation(); addToCart('Onitsuka Tiger TOKUTEN',1499000,'images/Onitsuka Tiger TOKUTEN.webp')">Add to Cart</button>
+      </div>
+      <div class="card" onclick="openDetail('Puma Speedcat OG Black White',1499000,'images/Puma Speedcat OG Black White.png')">
+        <img src="images/Puma Speedcat OG Black White 2.png">
+        <div class="title">Puma Speedcat OG Black White</div>
+        <div class="price">Rp 1.499.000</div>
+        <button class="btn" onclick="event.stopPropagation(); addToCart('Puma Speedcat OG Black White',1499000,'images/Puma Speedcat OG Black White.png')">Add to Cart</button>
+      </div>
+      <div class="card" onclick="openDetail('Adidas Handball Spezial',1699000,'images/Adidas Handball Spezial Blue.avif')">
+        <img src="images/Adidas Handball Spezial Blue (4).avif">
+        <div class="title">Adidas Handball Spezial</div>
+        <div class="price">Rp 1.699.000</div>
+        <button class="btn" onclick="event.stopPropagation(); addToCart('Adidas Handball Spezial',1699000,'images/Adidas Handball Spezial Blue.avif')">Add to Cart</button>
+      </div>
+      <div class="card" onclick="openDetail('New Balance 574 trainers',1399000,'images/new-balance-574-trainers.webp')">
+        <img src="images/new-balance-574-trainers (3).webp">
+        <div class="title">New Balance 574 trainers</div>
+        <div class="price">Rp 1.399.000</div>
+        <button class="btn" onclick="event.stopPropagation(); addToCart('New Balance 574 trainers',1399000,'images/new-balance-574-trainers.webp')">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+<!-- COMMENTS SECTION -->
+<section class="testimonials" id="comments">
+  <div class="comments-header">
+    <h2>Apa Kata Mereka?</h2>
+    <button id="toggleCommentsBtn" class="toggle-btn" onclick="toggleComments()">Sembunyikan Komentar</button>
+  </div>
+  
+  <div id="commentsContent">
+    <div class="comment-form-container">
+      <form id="commentForm" onsubmit="event.preventDefault(); addComment();">
+      <div class="form-row">
+        <input type="text" id="commentName" placeholder="Nama Anda" required>
+        <div class="stars-input">
+          <select id="commentRating" required>
+            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+            <option value="4">⭐⭐⭐⭐ (4/5)</option>
+            <option value="3">⭐⭐⭐ (3/5)</option>
+            <option value="2">⭐⭐ (2/5)</option>
+            <option value="1">⭐ (1/5)</option>
+          </select>
+        </div>
+      </div>
+      <textarea id="commentText" placeholder="Tulis komentar Anda tentang Kicksy.id..." required></textarea>
+      <button type="submit" class="btn">Kirim Komentar</button>
+    </form>
+  </div>
+
+  <div class="testimonial-grid" id="commentList">
+    <!-- Komentar Statis (Default) -->
+    <div class="testi-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>"Sepatu Kanky nya original banget, pengiriman cepet dan CS nya ramah. Bakal langganan di sini!"</p>
+      <div class="user">- Andi, Jakarta</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>"Dapet promo KICKSY10 lumayan banget buat beli Nike Dunk. Barang sampe dengan aman pake double box."</p>
+      <div class="user">- Budi, Bandung</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>"Gak nyangka brand lokal sekarang kualitasnya oke banget. Thanks Kicksy udah kurasi produk lokal!"</p>
+      <div class="user">- Citra, Surabaya</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="about-container">
+    <h1 class="about-title">KICKSY SNEAKER SHOP FOR PERFORMANCE, STYLE & INNOVATION - SINCE 2024</h1>
+    
+    <div class="about-content">
+      <p>Sneakers keep us moving. Keeps you stylish. Brings us together. Through footwear, we have the power to change lives—through stories of inspiring individuals, innovative designs, and by helping you step out with confidence.</p>
+      
+      <p>Find high-quality sneakers and streetwear built with the latest materials to help you push your limits. Whether you’re a runner, a basketball player, a skater, or someone who just loves to stay stylish, our sneaker shop is your home. We’re here to help you walk further, run faster, and look better, with products that keep up with your movement and support your lifestyle.</p>
+      
+      <p>Explore our online store for the latest collections from global and local brands, where innovation meets style. From the urban explorer navigating the city to the weekend hiker escaping the bustle, we support everyone striving to be their best. The sneaker shop at Kicksy offers gear for all levels—whether you’re a serious collector, a fitness enthusiast, or just starting your sneaker journey. Our online store ensures that wherever you are, you can access the latest gear designed for movement.</p>
+      
+      <p>The Kicksy sneaker store is more than just a place to shop—it’s a space for creators to elevate their game and redefine what’s possible. Every item in our shop is curated with performance, durability, and attention to detail in mind, helping you move with confidence. At Kicksy, we partner with the best brands in the industry to curate, ensuring every pair of shoes supports movement, self-expression, and an active lifestyle. Wherever your journey takes you, our shop has you covered—helping you take every step toward greatness.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact & Social</h2>
+  <div class="socials">
+    <a href="https://wa.me/6287825462321">WhatsApp</a>
+    <a href="https://instagram.com/kicksy.id">Instagram</a>
+    <a href="https://tiktok.com/@kicksy.id">TikTok</a>
+  </div>
+</section>
+
+<div id="bagBackdrop" class="bag-backdrop" onclick="closeBag()"></div>
+<div id="bagDrawer" class="bag-drawer">
+  <div class="bag-head">
+    <div>Tas Belanja</div>
+    <button class="close" onclick="closeBag()">×</button>
+  </div>
+  <div id="bagItems" class="bag-items"></div>
+  <div class="bag-foot">
+    <div class="totals">Total: <span id="bagTotal">Rp 0</span></div>
+    <div class="actions">
+      <button class="btn" onclick="goToCart()">Lihat Keranjang</button>
+    </div>
+  </div>
+  <div class="bag-empty" id="bagEmpty">Tas belanja kosong</div>
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-wrap">
+    <h2>Dapatkan Update Terbaru</h2>
+    <p>Berlangganan newsletter kami untuk info rilis produk terbaru dan promo eksklusif.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Terima kasih sudah berlangganan!');">
+      <input type="email" placeholder="Alamat Email Anda" required>
+      <button type="submit" class="btn">Daftar Sekarang</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">KICKSY</div>
+      <p>Destinasi utama sneakerhead Indonesia untuk koleksi brand global dan lokal terbaik.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Belanja</h4>
+      <a href="#catalog">Katalog</a>
+      <a href="#promo">Promo</a>
+      <a href="#best">Best Seller</a>
+    </div>
+    <div class="footer-links">
+      <h4>Bantuan</h4>
+      <a href="#">FAQ</a>
+      <a href="#">Pengiriman</a>
+      <a href="#">Kebijakan Pengembalian</a>
+    </div>
+    <div class="footer-links">
+      <h4>Ikuti Kami</h4>
+      <a href="https://instagram.com/kicksy.id">Instagram</a>
+      <a href="https://tiktok.com/@kicksy.id">TikTok</a>
+      <a href="https://wa.me/6287825462321">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 kicksy.id — All Rights Reserved</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
