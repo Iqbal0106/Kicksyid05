@@ -15,7 +15,7 @@
 
 <header class="header">
   <div class="bar main">
-    <div class="logo">KICKSY</div>
+    <img class="logo" src="images/logo kicksy.jpeg" alt="Kicksy.id logo" />
     <nav class="cats"></nav>
     <div class="actions">
       <div class="user-btn-container">
@@ -94,7 +94,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="logo">KICKSY</div>
+      <img class="logo" src="images/logo kicksy.jpeg" alt="Kicksy.id logo" />
       <p>Destinasi utama sneakerhead Indonesia untuk koleksi brand global dan lokal terbaik.</p>
     </div>
     <div class="footer-links">
@@ -269,11 +269,17 @@
     img.src = safeSrc(src);
     img.onerror = () => (img.src = safeSrc(product.image));
   });
+  // Set first thumb as active
+  if (thumbEls[0]) thumbEls[0].classList.add('active');
   
 
   // ganti image utama
   function changeImage(el) {
     document.getElementById("productImage").src = el.src;
+    // Remove active from all thumbs
+    document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+    // Add active to clicked
+    el.classList.add('active');
   }
   const sizeWrap = document.querySelector(".size-options");
   const sizes = ["40","41","42","43","44","45"];
