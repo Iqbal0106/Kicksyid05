@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  background: var(--bg);
+  background: linear-gradient(to bottom, #c7bbbb 0%, #000000 100%);
   color: var(--text);
   transition: var(--transition);
   overflow-x: hidden;
@@ -424,7 +424,7 @@ body.gradient-bg {
 ===================== */
 .newsletter {
   padding: 6rem 2rem;
-  background: radial-gradient(circle at center, #1a1a1a, #000);
+  background: radial-gradient(circle at top, #7b7b7b 0%, #252525 45%, #000000 100%);
   text-align: center;
 }
 
@@ -468,6 +468,7 @@ body.gradient-bg {
 ===================== */
 .product-section {
   padding: 4rem 2rem;
+  background: radial-gradient(circle at top, #7b7b7b 0%, #272727 45%, #000000 100%);
 }
 
 .product-section h2 {
@@ -502,7 +503,7 @@ body.gradient-bg {
 
 .product-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 15px 3px rgba(0,0,0,0.4);
 }
 
 .product-card img {
@@ -583,7 +584,7 @@ h2 {
    PROMO SECTION (IMAGE ROW)
 ===================== */
 .promo-section {
-  background: #111;
+  background: radial-gradient(circle at top, #8c8c8c 0%, #303030 45%, #000000 100%);
   padding: 6rem 2rem;
 }
 
@@ -596,8 +597,8 @@ h2 {
 }
 
 .promo-card {
-  background: #000 !important;
-  border: 1px solid #00aaff !important;
+  background: radial-gradient(circle at top, #8a8a8a, #000);
+  border: 1px solid #00ffaa !important;
   border-radius: 12px;
   padding: 2.5rem;
   transition: all 0.3s ease;
@@ -622,16 +623,15 @@ h2 {
   aspect-ratio: 1;
   object-fit: cover;
   background: #1a1a1a;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 5px;
 }
 
 .promo-card .badge-promo {
   position: absolute;
   top: -10px;
   left: -10px;
-  background: #ff0000;
-  color: #fff;
+  background: #00ffaa;
+  color: #000000;
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-weight: 900;
@@ -858,9 +858,6 @@ h2 {
   border-color: #ff3b3b;
 }
 
-/* =====================
-   TESTIMONIALS
-===================== */
 /* =====================
    BAG DRAWER (FULL SCREEN)
 ===================== */
@@ -1376,7 +1373,7 @@ body.bag-open .bag-drawer {
 ===================== */
 .testimonials {
   padding: 6rem 2rem;
-  background: var(--bg);
+  background: radial-gradient(circle at top, #7c7c7c 0%, #252525 40%, #000000 100%);
 }
 
 .comments-header {
@@ -1527,6 +1524,17 @@ body.bag-open .bag-drawer {
 /* =====================
    ABOUT & CONTACT
 ===================== */
+.about-section {
+  padding: 6rem 2rem;
+  background: radial-gradient(circle at top, #7d7d7d 0%, #2a2a2a 40%, #000000 100%);
+}
+
+#contact,
+#best {
+  padding: 6rem 2rem;
+  background: radial-gradient(circle at top, #7d7d7d 0%, #2a2a2a 40%, #000000 100%);
+}
+
 .about {
   max-width: 700px;
   margin: auto;
@@ -1546,10 +1554,64 @@ body.bag-open .bag-drawer {
 }
 
 /* =====================
+   FAQ
+===================== */
+#faq {
+  padding: 6rem 2rem;
+  background: radial-gradient(circle at top, #7d7d7d 0%, #2a2a2a 40%, #000000 100%);
+}
+
+.faq-item {
+  border-bottom: 1px solid #ffffff;
+  padding: 10px 0;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 0;
+  transition: 0.3s;
+}
+
+.faq-question:hover {
+  color: #01ff99; 
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  font-size: 14px;
+  color: #ffffff;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 100px;
+  margin-top: 8px;
+}
+
+.icon {
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.faq-item.active .icon {
+  transform: rotate(45deg); 
+  color: #ffffff;
+}
+
+/* =====================
    FOOTER
 ===================== */
 footer {
-  background: #000;
+  background: radial-gradient(circle at top, #6f6f6f 0%, #1f1f1f 45%, #000000 100%);
   padding: 5rem 2rem 2rem;
   border-top: 1px solid rgba(255,255,255,0.05);
 }

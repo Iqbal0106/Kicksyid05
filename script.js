@@ -579,3 +579,23 @@ function changeQty(index, delta) {
   if (document.getElementById("cartItems")) renderCart();
   if (document.getElementById("bagItems")) renderBag();
 }
+
+/* =====================
+   FAQ
+===================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const faqs = document.querySelectorAll(".faq-question");
+
+  faqs.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const item = btn.parentElement;
+
+      // optional: biar cuma 1 yang kebuka
+      document.querySelectorAll(".faq-item").forEach(f => {
+        if (f !== item) f.classList.remove("active");
+      });
+
+      item.classList.toggle("active");
+    });
+  });
+});
