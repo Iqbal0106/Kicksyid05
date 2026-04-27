@@ -6,6 +6,7 @@
   <title>Katalog Produk | Kicksy.id</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Coda+Caption:wght@800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="gradient-bg">
@@ -22,13 +23,13 @@
     <div class="actions">
       <div class="search">
         <input id="searchInput" type="text" placeholder="Cari produk..." />
-        <span class="ico">🔍</span>
+        <span class="ico"><img src="icon/search.png" alt="Search" style="width: 20px; height: 20px;"></span>
       </div>
       <div class="user-btn-container">
-        <button class="icon-btn" onclick="userButtonClick()">👤</button>
+        <button class="icon-btn" onclick="userButtonClick()"><img src="icon/user.png" alt="User" style="width: 20px; height: 20px;"></button>
       </div>
       <button class="icon-btn" onclick="openBag()">
-        <span>🛒</span>
+        <img src="icon/cart.png" alt="Cart" style="width: 20px; height: 20px;">
         <span class="badge" id="cartBadge">0</span>
       </button>
     </div>
@@ -53,51 +54,51 @@
 
   <div class="catalog-grid">
     <!-- Brand Products -->
-    <div class="tile" data-cat="brand" onclick="openDetail('Nike Dunk Low Retro Panda',1599000,'images/Nike Dunk Low Retro White Black Panda.png')">
-      <button class="fav" onclick="event.stopPropagation(); toggleFav('Nike Dunk Low Retro Panda')">♡</button>
-      <img src="images/Nike Dunk Low Retro White Black Panda.png" alt="Nike Dunk Low Panda">
-      <div class="price">Rp 1.599.000</div>
-      <div class="name">Nike Dunk Low Retro Panda</div>
+    <div class="tile" data-cat="brand" onclick="openDetail('Nike Dunk Low Retro',1549000,'images/Nike Dunk Low Retro 1.avif')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Nike Dunk Low Retro')">♡</button>
+      <img src="images/Nike Dunk Low Retro 1.avif" alt="Nike Dunk Low Retro">
+      <div class="price">Rp 1.549.000</div>
+      <div class="name">Nike Dunk Low Retro</div>
       <div class="sub">Originals</div>
     </div>
 
-    <div class="tile" data-cat="brand" onclick="openDetail('Nike P-6000 Metallic Silver Sail',1799000,'images/Nike P-6000 Metallic Silver Sail.png')">
-      <button class="fav" onclick="event.stopPropagation(); toggleFav('Nike P-6000 Metallic Silver Sail')">♡</button>
-      <img src="images/Nike P-6000 Metallic Silver Sail.png" alt="Nike P-6000 Metallic Silver Sail">
-      <div class="price">Rp 1.799.000</div>
-      <div class="name">Nike P-6000 Metallic Silver Sail</div>
+    <div class="tile" data-cat="brand" onclick="openDetail('Nike Zoom Vomero 5',2489000,'images/Nike Zoom Vomero 5(1).avif')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Nike Zoom Vomero 5')">♡</button>
+      <img src="images/Nike Zoom Vomero 5(1).avif" alt="Nike Zoom Vomero 5">
+      <div class="price">Rp 2.489.000</div>
+      <div class="name">Nike Zoom Vomero 5</div>
       <div class="sub">Originals</div>
     </div>
 
-    <div class="tile" data-cat="brand" onclick="openDetail('Adizero EVO SL Black',1899000,'images/Adizero EVO SL Black.avif')">
-      <button class="fav" onclick="event.stopPropagation(); toggleFav('Adizero EVO SL Black')">♡</button>
-      <img src="images/Adizero EVO SL Black.avif" alt="Adizero EVO SL Black">
-      <div class="price">Rp 1.899.000</div>
-      <div class="name">Adizero EVO SL Black</div>
+    <div class="tile" data-cat="brand" onclick="openDetail('Adidas GAZELLE LO PRO SHOES',1700000,'images/Adidas GAZELLE LO PRO SHOES 1.avif')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Adidas GAZELLE LO PRO SHOES')">♡</button>
+      <img src="images/Adidas GAZELLE LO PRO SHOES 1.avif" alt="Adidas GAZELLE LO PRO SHOES">
+      <div class="price">Rp 1.700.000</div>
+      <div class="name">Adidas GAZELLE LO PRO SHOES</div>
+      <div class="sub">Originals</div>
+    </div>
+    
+    <div class="tile" data-cat="brand" onclick="openDetail('PUMA x SPARCO Speedcat',1999000,'images/PUMA x SPARCO Speedcat OG(1).avif')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('PUMA x SPARCO Speedcat')">♡</button>
+      <img src="images/PUMA x SPARCO Speedcat OG(1).avif" alt="PUMA x SPARCO Speedcat">
+      <div class="price">Rp 1.999.000</div>
+      <div class="name">PUMA x SPARCO Speedcat</div>
       <div class="sub">Originals</div>
     </div>
 
-    <div class="tile" data-cat="brand" onclick="openDetail('Puma Speedcat OG Black White',1499000,'images/Puma Speedcat OG Black White.png')">
-      <button class="fav" onclick="event.stopPropagation(); toggleFav('Puma Speedcat OG Black White')">♡</button>
-      <img src="images/Puma Speedcat OG Black White.png" alt="Puma Speedcat OG Black White">
-      <div class="price">Rp 1.499.000</div>
-      <div class="name">Puma Speedcat OG Black White</div>
+    <div class="tile" data-cat="brand" onclick="openDetail('PUMA x SPARCO Speedcat red',1999000,'images/PUMA x SPARCO Speedcat red(1).avif')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('PUMA x SPARCO Speedcat red')">♡</button>
+      <img src="images/PUMA x SPARCO Speedcat red(1).avif" alt="PUMA x SPARCO Speedcat red">
+      <div class="price">Rp 1.999.000</div>
+      <div class="name">PUMA x SPARCO Speedcat red</div>
       <div class="sub">Originals</div>
     </div>
 
-    <div class="tile" data-cat="brand" onclick="openDetail('Puma Speedcat OG Red White',1499000,'images/Puma Speedcat OG Red White.png')">
-      <button class="fav" onclick="event.stopPropagation(); toggleFav('Puma Speedcat OG Red White')">♡</button>
-      <img src="images/Puma Speedcat OG Red White.png" alt="Puma Speedcat OG Red White">
-      <div class="price">Rp 1.499.000</div>
-      <div class="name">Puma Speedcat OG Red White</div>
-      <div class="sub">Originals</div>
-    </div>
-
-    <div class="tile" data-cat="brand" onclick="openDetail('Salomon XT-6 GORE-TEX Black Silver',2699000,'images/Salomon XT-6 GORE-TEX Black Silver.png')">
-      <button class="fav" onclick="event.stopPropagation(); toggleFav('Salomon XT-6 GORE-TEX Black Silver')">♡</button>
-      <img src="images/Salomon XT-6 GORE-TEX Black Silver.png" alt="Salomon XT-6 GORE-TEX Black Silver">
+    <div class="tile" data-cat="brand" onclick="openDetail('Salomon XT-6 GORE-TEX',2699000,'images/XT-6 GORE-TEX 1.avif')">
+      <button class="fav" onclick="event.stopPropagation(); toggleFav('Salomon XT-6 GORE-TEX')">♡</button>
+      <img src="images/XT-6 GORE-TEX 1.avif" alt="Salomon XT-6 GORE-TEX">
       <div class="price">Rp 2.699.000</div>
-      <div class="name">Salomon XT-6 GORE-TEX Black Silver</div>
+      <div class="name">Salomon XT-6 GORE-TEX</div>
       <div class="sub">Originals</div>
     </div>
 

@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cart | Kicksy</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="gradient-bg">
@@ -13,10 +14,10 @@
     <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer">KICKSY</div>
     <div class="actions">
       <div class="user-btn-container">
-        <button class="icon-btn" onclick="userButtonClick()">👤</button>
+        <button class="icon-btn" onclick="userButtonClick()"><img src="icon/user.png" alt="User" style="width: 20px; height: 20px;"></button>
       </div>
       <button class="icon-btn" onclick="openBag()">
-        <span>🛒</span>
+        <img src="icon/cart.png" alt="Cart" style="width: 20px; height: 20px;">
         <span class="badge" id="cartBadge">0</span>
       </button>
     </div>

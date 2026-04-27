@@ -6,6 +6,7 @@
   <title>Kicksy.id — Streetwear Sneakers</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Coda+Caption:wght@800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,13 +23,15 @@
     <div class="actions">
       <div class="search">
         <input id="searchInput" type="text" placeholder="Cari produk..." />
-        <span class="ico">🔍</span>
+        <span class="ico"><img src="icon/search.png" alt="Search" style="width: 20px; height: 20px;"></span>
       </div>
       <div class="user-btn-container">
-        <button class="icon-btn" onclick="userButtonClick()">👤</button>
+        <button class="icon-btn" onclick="userButtonClick()">
+          <img src="icon/user.png" alt="User" style="width: 20px; height: 20px;">
+        </button>
       </div>
       <button class="icon-btn" onclick="openBag()">
-        <span>🛒</span>
+        <img src="icon/cart.png" alt="Cart" style="width: 20px; height: 20px;">
         <span class="badge" id="cartBadge">0</span>
       </button>
     </div>
@@ -96,47 +99,47 @@
     <button class="slide-btn left" onclick="slideLeft()">‹</button>
 
     <div class="product-slider" id="slider">
-      <div class="product-card" onclick="openDetail('Nike Dunk Low Retro Panda',1599000,'images/Nike Dunk Low Retro White Black Panda.png')">
-        <img src="images/Nike Dunk Low Retro White Black Panda.png">
-        <h3>Nike Dunk Low Retro Panda</h3>
+      <div class="product-card" onclick="openDetail('Nike Dunk Low Retro',1549000,'images/Nike Dunk Low Retro 1.avif')">
+        <img src="images/Nike Dunk Low Retro 1.avif">
+        <h3>Nike Dunk Low Retro</h3>
         <p class="variant">Sneakers Shoes · Black/White</p>
-        <p class="price">Rp 1.599.000</p>
-        <button onclick="event.stopPropagation(); addToCart('Nike Dunk Low Retro Panda',1599000,'images/Nike Dunk Low Retro White Black Panda.png')">Add to Cart</button>
+        <p class="price">Rp 1.549.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Nike Dunk Low Retro',1549000,'images/Nike Dunk Low Retro 1.avif')">Add to Cart</button>
       </div>
-      <div class="product-card" onclick="openDetail('Nike P-6000 Metallic Silver Sail',1799000,'images/Nike P-6000 Metallic Silver Sail.png')">
-        <img src="images/Nike P-6000 Metallic Silver Sail.png">
-        <h3>Nike P-6000 Metallic Silver Sail</h3>
+      <div class="product-card" onclick="openDetail('Nike Zoom Vomero 5',2489000,'images/Nike Zoom Vomero 5(1).avif')">
+        <img src="images/Nike Zoom Vomero 5(1).avif">
+        <h3>Nike Zoom Vomero 5</h3>
         <p class="variant">Sneakers Shoes · Silver</p>
-        <p class="price">Rp 1.799.000</p>
-        <button onclick="event.stopPropagation(); addToCart('Nike P-6000 Metallic Silver Sail',1799000,'images/Nike P-6000 Metallic Silver Sail.png')">Add to Cart</button>
+        <p class="price">Rp 2.489.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Nike Zoom Vomero 5',2489000,'images/Nike Zoom Vomero 5(1).avif')">Add to Cart</button>
       </div>
-      <div class="product-card" onclick="openDetail('Adizero EVO SL Black',1899000,'images/Adizero EVO SL Black.avif')">
-        <img src="images/Adizero EVO SL Black.avif">
-        <h3>Adizero EVO SL Black</h3>
+      <div class="product-card" onclick="openDetail('Adidas GAZELLE LO PRO SHOES',1700000,'images/Adidas GAZELLE LO PRO SHOES 1.avif')">
+        <img src="images/Adidas GAZELLE LO PRO SHOES 1.avif">
+        <h3>Adidas GAZELLE LO PRO SHOES</h3>
         <p class="variant">Running · Black</p>
-        <p class="price">Rp 1.899.000</p>
-        <button onclick="event.stopPropagation(); addToCart('Adizero EVO SL Black',1899000,'images/Adizero EVO SL Black.avif')">Add to Cart</button>
+        <p class="price">Rp 1.700.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Adidas GAZELLE LO PRO SHOES',1700000,'images/Adidas GAZELLE LO PRO SHOES 1.avif')">Add to Cart</button>
       </div>
-      <div class="product-card" onclick="openDetail('Puma Speedcat OG Black White',1499000,'images/Puma Speedcat OG Black White.png')">
-        <img src="images/Puma Speedcat OG Black White.png">
-        <h3>Puma Speedcat OG Black White</h3>
-        <p class="variant">Motorsport · Black/White</p>
-        <p class="price">Rp 1.499.000</p>
-        <button onclick="event.stopPropagation(); addToCart('Puma Speedcat OG Black White',1499000,'images/Puma Speedcat OG Black White.png')">Add to Cart</button>
+      <div class="product-card" onclick="openDetail('PUMA x SPARCO Speedcat',1999000,'images/PUMA x SPARCO Speedcat OG(1).avif')">
+        <img src="images/PUMA x SPARCO Speedcat OG(1).avif">
+        <h3>PUMA x SPARCO Speedcat</h3>
+        <p class="variant">Sneakers Shoes · Black</p>
+        <p class="price">Rp 1.999.000</p>
+        <button onclick="event.stopPropagation(); addToCart('PUMA x SPARCO Speedcat',1999000,'images/PUMA x SPARCO Speedcat OG(1).avif')">Add to Cart</button>
       </div>
-      <div class="product-card" onclick="openDetail('Puma Speedcat OG Red White',1499000,'images/Puma Speedcat OG Red White.png')">
-        <img src="images/Puma Speedcat OG Red White.png">
-        <h3>Puma Speedcat OG Red White</h3>
-        <p class="variant">Motorsport · Red/White</p>
-        <p class="price">Rp 1.499.000</p>
-        <button onclick="event.stopPropagation(); addToCart('Puma Speedcat OG Red White',1499000,'images/Puma Speedcat OG Red White.png')">Add to Cart</button>
+      <div class="product-card" onclick="openDetail('PUMA x SPARCO Speedcat red',1999000,'images/PUMA x SPARCO Speedcat red(1).avif')">
+        <img src="images/PUMA x SPARCO Speedcat red(1).avif">
+        <h3>PUMA x SPARCO Speedcat red</h3>
+        <p class="variant">Sneakers Shoes · Red</p>
+        <p class="price">Rp 1.999.000</p>
+        <button onclick="event.stopPropagation(); addToCart('PUMA x SPARCO Speedcat red',1999000,'images/PUMA x SPARCO Speedcat red(1).avif')">Add to Cart</button>
       </div>
-      <div class="product-card" onclick="openDetail('Salomon XT-6 GORE-TEX Black Silver',2699000,'images/Salomon XT-6 GORE-TEX Black Silver.png')">
-        <img src="images/Salomon XT-6 GORE-TEX Black Silver.png">
-        <h3>Salomon XT-6 GORE-TEX Black Silver</h3>
+      <div class="product-card" onclick="openDetail('Salomon XT-6 GORE-TEX',2699000,'images/XT-6 GORE-TEX 1.avif')">
+        <img src="images/XT-6 GORE-TEX 1.avif">
+        <h3>Salomon XT-6 GORE-TEX</h3>
         <p class="variant">Trail · Black/Silver</p>
         <p class="price">Rp 2.699.000</p>
-        <button onclick="event.stopPropagation(); addToCart('Salomon XT-6 GORE-TEX Black Silver',2699000,'images/Salomon XT-6 GORE-TEX Black Silver.png')">Add to Cart</button>
+        <button onclick="event.stopPropagation(); addToCart('Salomon XT-6 GORE-TEX',2699000,'images/XT-6 GORE-TEX 1.avif')">Add to Cart</button>
       </div>
     </div>
 
@@ -155,12 +158,12 @@
         <div class="price">Rp 1.499.000</div>
         <button class="btn" onclick="event.stopPropagation(); addToCart('Onitsuka Tiger TOKUTEN',1499000,'images/Onitsuka Tiger TOKUTEN.webp')">Add to Cart</button>
       </div>
-      <div class="card" onclick="openDetail('Puma Speedcat OG Black White',1499000,'images/Puma Speedcat OG Black White.png')">
-        <img src="images/Puma Speedcat OG Black White 2.png">
-        <div class="title">Puma Speedcat OG Black White</div>
-        <div class="price">Rp 1.499.000</div>
-        <button class="btn" onclick="event.stopPropagation(); addToCart('Puma Speedcat OG Black White',1499000,'images/Puma Speedcat OG Black White.png')">Add to Cart</button>
-      </div>
+      <div class="card" onclick="openDetail('PUMA x SPARCO Speedcat',1999000,'images/PUMA x SPARCO Speedcat OG(1).avif')">
+         <img src="images/PUMA x SPARCO Speedcat OG(2).avif">
+         <div class="title">PUMA x SPARCO Speedcat</div>
+         <div class="price">Rp 1.999.000</div>
+         <button class="btn" onclick="event.stopPropagation(); addToCart('PUMA x SPARCO Speedcat',1999000,'images/PUMA x SPARCO Speedcat OG(1).avif')">Add to Cart</button>
+       </div>
       <div class="card" onclick="openDetail('Adidas Handball Spezial',1699000,'images/Adidas Handball Spezial Blue.avif')">
         <img src="images/Adidas Handball Spezial Blue (4).avif">
         <div class="title">Adidas Handball Spezial</div>

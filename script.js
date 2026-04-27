@@ -137,13 +137,15 @@ function updateUserUI() {
     if (user && user.name) {
       container.innerHTML = `
         <button class="icon-btn logged-in" onclick="userButtonClick()">
-          <span>👤</span>
+          <img src="icon/user.png" alt="User" style="width: 20px; height: 20px;">
           <span class="user-name-label">${user.name.split(" ")[0]}</span>
         </button>
       `;
     } else {
       container.innerHTML = `
-        <button class="icon-btn" onclick="userButtonClick()">👤</button>
+        <button class="icon-btn" onclick="userButtonClick()">
+          <img src="icon/user.png" alt="User" style="width: 20px; height: 20px;">
+        </button>
       `;
     }
   });

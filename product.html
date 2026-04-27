@@ -7,6 +7,7 @@
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Coda+Caption:wght@800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
@@ -19,10 +20,10 @@
     <nav class="cats"></nav>
     <div class="actions">
       <div class="user-btn-container">
-        <button class="icon-btn" onclick="userButtonClick()">👤</button>
+        <button class="icon-btn" onclick="userButtonClick()"><img src="icon/user.png" alt="User" style="width: 20px; height: 20px;"></button>
       </div>
       <button class="icon-btn" onclick="openBag()">
-        <span>🛒</span>
+        <img src="icon/cart.png" alt="Cart" style="width: 20px; height: 20px;">
         <span class="badge" id="cartBadge">0</span>
       </button>
     </div>
@@ -136,35 +137,35 @@
   document.getElementById("productPrice").innerText =
     "Rp " + product.price.toLocaleString("id-ID");
   const galleries = {
-    "Nike P-6000 Metallic Silver Sail": [
-      "images/Nike P-6000 Metallic Silver Sail.png",
-      "images/Nike P-6000 Metallic Silver Sail 2.png",
-      "images/Nike P-6000 Metallic Silver Sail 3.png",
-      "images/Nike P-6000 Metallic Silver Sail 4.png"
+    "Nike Zoom Vomero 5": [
+      "images/Nike Zoom Vomero 5(1).afiv",
+      "images/Nike Zoom Vomero 5(2).afiv",
+      "images/Nike Zoom Vomero 5(3).afiv",
+      "images/Nike Zoom Vomero 5(4).afiv"
     ],
-    "Adizero EVO SL Black": [
-      "images/Adizero EVO SL Black.avif",
-      "images/Adizero EVO SL Black 2.avif",
-      "images/Adizero EVO SL Black 3.avif",
-      "images/Adizero EVO SL Black.avif"
+    "Adidas GAZELLE LO PRO SHOES": [
+      "images/Adidas GAZELLE LO PRO SHOES 1.avif",
+      "images/Adidas GAZELLE LO PRO SHOES 2.avif",
+      "images/Adidas GAZELLE LO PRO SHOES 3.avif",
+      "images/Adidas GAZELLE LO PRO SHOES 4.avif"
     ],
-    "Nike Dunk Low Retro Panda": [
-      "images/Nike Dunk Low Retro White Black Panda.png",
-      "images/Nike Dunk Low Retro White Black Panda 2.png",
-      "images/Nike Dunk Low Retro White Black Panda 3.png",
-      "images/Nike Dunk Low Retro White Black Panda 4.png"
+    "Nike Dunk Low Retro": [
+      "images/Nike Dunk Low Retro 1.avif",
+      "images/Nike Dunk Low Retro 2.avif",
+      "images/Nike Dunk Low Retro 3.avif",
+      "images/Nike Dunk Low Retro 4.avif"
     ],
-    "Puma Speedcat OG Black White": [
-      "images/Puma Speedcat OG Black White.png",
-      "images/Puma Speedcat OG Black White 2.png",
-      "images/Puma Speedcat OG Black White 3.png",
-      "images/Puma Speedcat OG Black White 4.png"
+    "PUMA x SPARCO Speedcat": [
+      "images/PUMA x SPARCO Speedcat OG(1).avif",
+      "images/PUMA x SPARCO Speedcat OG(2).avif",
+      "images/PUMA x SPARCO Speedcat OG(3).avif",
+      "images/PUMA x SPARCO Speedcat OG(4).avif"
     ],
-    "Puma Speedcat OG Red White": [
-      "images/Puma Speedcat OG Red White.png",
-      "images/Puma Speedcat OG Red White 2.png",
-      "images/Puma Speedcat OG Red White 3.png",
-      "images/Puma Speedcat OG Red White 4.png"
+    "PUMA x SPARCO Speedcat red": [
+      "images/PUMA x SPARCO Speedcat red(1).avif",
+      "images/PUMA x SPARCO Speedcat red(2).avif",
+      "images/PUMA x SPARCO Speedcat red(3).avif",
+      "images/PUMA x SPARCO Speedcat red(4).avif"
     ],
     "Onitsuka Tiger TOKUTEN": [
       "images/Onitsuka Tiger TOKUTEN.webp",
@@ -184,11 +185,11 @@
       "images/new-balance-574-trainers (2).webp",
       "images/new-balance-574-trainers (3).webp"
     ],
-    "Salomon XT-6 GORE-TEX Black Silver": [
-      "images/Salomon XT-6 GORE-TEX Black Silver.png",
-      "images/Salomon XT-6 GORE-TEX Black Silver 2.png",
-      "images/Salomon XT-6 GORE-TEX Black Silver 3.png",
-      "images/Salomon XT-6 GORE-TEX Black Silver.png"
+    "Salomon XT-6 GORE-TEX": [
+      "images/XT-6 GORE-TEX 1.avif",
+      "images/XT-6 GORE-TEX 2.avif",
+      "images/XT-6 GORE-TEX 3.avif",
+      "images/XT-6 GORE-TEX 4.avif"
     ],
     "ADIDAS ORIGINALS SAMBA JANE": [
       "images/ADIDAS ORIGINALS SAMBA JANE.jpeg",
