@@ -1,0 +1,234 @@
+/* =====================
+   PAGE: MISC SECTIONS
+   Testimonials, About, FAQ, Contact
+===================== */
+
+/* ---- Testimonials ---- */
+.testimonials {
+  padding: 6rem 2rem;
+  background: radial-gradient(circle at top, #7c7c7c 0%, #252525 40%, #000000 100%);
+}
+
+.comments-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.comments-header h2 {
+  margin: 0;
+}
+
+.toggle-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.toggle-btn:hover {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Comment Form */
+.comment-form-container {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  background: var(--card);
+  padding: 2.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.comment-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.comment-form-container .form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.comment-form-container .form-row input,
+.comment-form-container .form-row select {
+  flex: 1;
+}
+
+.comment-form-container input,
+.comment-form-container select,
+.comment-form-container textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  color: #fff;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.comment-form-container input:focus,
+.comment-form-container select:focus,
+.comment-form-container textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.comment-form-container textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.comment-form-container .btn {
+  align-self: flex-start;
+  padding: 1rem 2.5rem;
+}
+
+/* Testi Card */
+.testi-card {
+  background: var(--card);
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.testi-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.testi-card .stars {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.testi-card p {
+  font-style: italic;
+  text-align: justify;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 1rem 0 1.5rem;
+}
+
+.testi-card .user {
+  font-weight: 800;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+/* ---- About & Contact ---- */
+.about-section {
+  padding: 6rem 2rem;
+  background: radial-gradient(circle at top, #7d7d7d 0%, #2a2a2a 40%, #000000 100%);
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.about-content {
+  text-align: justify;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.about-content p {
+  margin-bottom: 1.5rem;
+}
+
+#contact,
+#best {
+  padding: 6rem 2rem;
+  background: radial-gradient(circle at top, #7d7d7d 0%, #2a2a2a 40%, #000000 100%);
+}
+
+.about {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* ---- FAQ ---- */
+#faq {
+  padding: 6rem 2rem;
+  background: radial-gradient(circle at top, #7d7d7d 0%, #2a2a2a 40%, #000000 100%);
+}
+
+.faq-item {
+  border-bottom: 1px solid #ffffff;
+  padding: 10px 0;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 0;
+  transition: 0.3s;
+  color: #ffffff;
+}
+
+.faq-question:hover {
+  color: #01ff99;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  font-size: 14px;
+  color: #ffffff;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 100px;
+  margin-top: 8px;
+}
+
+.icon {
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.faq-item.active .icon {
+  transform: rotate(45deg);
+  color: #ffffff;
+}

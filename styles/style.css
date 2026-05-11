@@ -1,0 +1,26 @@
+/* =====================================================================
+   MAIN STYLESHEET — style.css
+   Entry point. Import semua partial CSS dari folder styles/.
+   Urutan import PENTING: variables → reset → base → components → pages → responsive
+   ===================================================================== */
+
+/* 1. Base: Variables & Reset */
+@import url('styles/base/variables.css');
+@import url('styles/base/reset.css');
+@import url('styles/base/typography.css');
+
+/* 2. Components */
+@import url('styles/components/navbar.css');
+@import url('styles/components/hero.css');
+@import url('styles/components/product.css');
+@import url('styles/components/footer.css');
+@import url('styles/components/animations.css');
+
+/* 3. Pages */
+@import url('styles/pages/bag-checkout.css');
+@import url('styles/pages/detail.css');
+@import url('styles/pages/auth.css');
+@import url('styles/pages/misc.css');
+
+/* 4. Layout: Responsive (selalu di akhir) */
+@import url('styles/layout/responsive.css');
