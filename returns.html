@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kebijakan Pengembalian | Kicksy.id</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="gradient-bg">
+
+<header class="header">
+  <div class="bar main">
+    <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer">KICKSY</div>
+    <div class="actions">
+      <div class="user-btn-container">
+        <button class="icon-btn" onclick="userButtonClick()" title="Akun"><img src="Icon/user.png" alt="User" style="width: 20px; height: 20px;"></button>
+      </div>
+      <button class="icon-btn" onclick="openBag()" title="Keranjang">
+        <img src="Icon/cart.png" alt="Cart" style="width: 20px; height: 20px;">
+        <span class="badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="bar sub">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Katalog</a>
+    <a href="index.html#promo">Promo</a>
+    <a href="index.html#best">Best Seller</a>
+  </div>
+</header>
+
+<section class="returns-page">
+  <div class="returns-container">
+    
+    <!-- HEADER -->
+    <div class="returns-header">
+      <h1>Kebijakan Pengembalian</h1>
+      <p>Kebijakan ini berlaku untuk semua pembelian di Kicksy.id</p>
+    </div>
+
+    <!-- 4 CARD KEBIJAKAN -->
+    <div class="returns-grid">
+      
+      <!-- CARD 1 - Ganti icon-img src nanti -->
+      <div class="returns-card">
+        <div class="returns-icon">
+          <img src="images/icons/return-time.png" alt="14 Hari" class="icon-img">
+        </div>
+        <h3>14 Hari Garansi</h3>
+        <p>Anda dapat mengembalikan produk dalam waktu <strong>14 hari</strong> setelah barang diterima.</p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="returns-card">
+        <div class="returns-icon">
+          <img src="images/icons/return-new.png" alt="Barang Baru" class="icon-img">
+        </div>
+        <h3>Barang Harus Baru</h3>
+        <p>Produk harus dalam kondisi <strong>baru, belum dipakai</strong>, dan masih dengan label asli.</p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="returns-card">
+        <div class="returns-icon">
+          <img src="images/icons/return-box.png" alt="Kemasan Asli" class="icon-img">
+        </div>
+        <h3>Kemasan Asli</h3>
+        <p>Kembalikan dengan <strong>kotak dan kemasan asli</strong> dalam kondisi baik.</p>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="returns-card">
+        <div class="returns-icon">
+          <img src="images/icons/return-money.png" alt="Pengembalian Dana" class="icon-img">
+        </div>
+        <h3>Pengembalian Dana</h3>
+        <p>Dana akan dikembalikan dalam <strong>3-7 hari kerja</strong> setelah barang kami terima.</p>
+      </div>
+
+    </div>
+
+    <!-- SYARAT & KETENTUAN -->
+    <div class="returns-section">
+      <h2>Syarat & Ketentuan</h2>
+      <ul class="returns-list">
+        <li>Pengembalian hanya berlaku untuk <strong>defect / cacat produksi</strong> atau <strong>salah ukuran</strong></li>
+        <li>Biaya pengiriman pengembalian <strong>ditanggung pembeli</strong> (kecuali defect produksi)</li>
+        <li>Produk yang sudah dicuci atau digunakan <strong>tidak dapat dikembalikan</strong></li>
+        <li>Produk limited edition / collab <strong>tidak dapat dikembalikan</strong> kecuali defect</li>
+        <li>Pastikan menyertakan <strong>bukti pembelian (Order ID)</strong> saat mengembalikan</li>
+      </ul>
+    </div>
+
+    <!-- CARA PENGEMBALIAN -->
+    <div class="returns-section">
+      <h2>Cara Pengembalian</h2>
+      <ol class="steps-list">
+        <li>
+          <span class="step-num">1</span>
+          <div class="step-content">
+            <strong>Hubungi Customer Service</strong>
+            <p>Kirim pesan ke WhatsApp kami dengan menyertakan Order ID dan foto produk</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <div class="step-content">
+            <strong>Dapatkan Kode RMA</strong>
+            <p>CS akan memberikan kode RMA (Return Merchandise Authorization)</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <div class="step-content">
+            <strong>Kirim Barang</strong>
+            <p>Paket barang dengan aman ke alamat yang diberikan CS</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <div class="step-content">
+            <strong>Inspeksi & Refund</strong>
+            <p>Kami akan memeriksa dalam 2x24 jam, lalu memproses refund</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- KONTAK -->
+    <div class="returns-contact">
+      <h3>Butuh Bantuan?</h3>
+      <p>Hubungi tim customer service kami</p>
+      <div class="contact-buttons">
+        <a href="https://wa.me/62895413318989" class="btn">WhatsApp</a>
+        <a href="mailto:cs@kicksy.id" class="btn outline">Email</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BAG DRAWER (sama seperti halaman lain) -->
+<div id="bagBackdrop" class="bag-backdrop" onclick="closeBag()"></div>
+<div id="bagDrawer" class="bag-drawer">
+  <div class="bag-head">
+    <div>Tas Belanja</div>
+    <button class="close" onclick="closeBag()">×</button>
+  </div>
+  <div id="bagItems" class="bag-items"></div>
+  <div class="bag-foot">
+    <div class="totals">Total: <span id="bagTotal">Rp 0</span></div>
+    <div class="actions">
+      <button class="btn" onclick="goToCart()">Lihat Keranjang</button>
+    </div>
+  </div>
+  <div class="bag-empty" id="bagEmpty">Tas belanja kosong</div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">KICKSY</div>
+      <p>Destinasi utama sneakerhead Indonesia untuk koleksi brand global dan lokal terbaik.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Belanja</h4>
+      <a href="shop.html">Katalog</a>
+      <a href="index.html#promo">Promo</a>
+      <a href="index.html#best">Best Seller</a>
+    </div>
+    <div class="footer-links">
+      <h4>Bantuan</h4>
+      <a href="index.html#faq">FAQ</a>
+      <a href="tracking.html">Pelacak pesanan</a>
+      <a href="returns.html">Kebijakan Pengembalian</a>
+    </div>
+    <div class="footer-links">
+      <h4>Ikuti Kami</h4>
+      <a href="https://instagram.com/kicksy.id">Instagram</a>
+      <a href="https://tiktok.com/@kicksy.id">TikTok</a>
+      <a href="https://wa.me/6287825462321">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 kicksy.id — All Rights Reserved</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

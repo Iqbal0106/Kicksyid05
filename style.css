@@ -3189,3 +3189,484 @@ footer {
     font-size: 0.8rem;
   }
 }
+/* =====================
+   TRACKING PAGE
+===================== */
+.tracking-page {
+  min-height: 70vh;
+  padding: 4rem 2rem;
+}
+
+.tracking-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tracking-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.tracking-container > p {
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.tracking-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tracking-form input {
+  flex: 1;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.tracking-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.tracking-form .btn {
+  width: auto;
+  padding: 0 2rem;
+}
+
+.tracking-result {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.tracking-error {
+  background: rgba(255,68,68,0.1);
+  border: 1px solid rgba(255,68,68,0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.tracking-error h3 {
+  color: #ff6666;
+  margin-bottom: 0.5rem;
+}
+
+.tracking-success {
+  background: rgba(255,255,255,0.03);
+  border-radius: 24px;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.tracking-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.status-badge {
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-badge.pending { background: rgba(255,193,7,0.2); color: #ffc107; }
+.status-badge.processing { background: rgba(0,123,255,0.2); color: #0d6efd; }
+.status-badge.shipped { background: rgba(0,255,153,0.2); color: var(--accent); }
+.status-badge.delivered { background: rgba(40,167,69,0.2); color: #28a745; }
+
+.tracking-timeline {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+.timeline-step {
+  text-align: center;
+  flex: 1;
+  position: relative;
+  opacity: 0.4;
+}
+
+.timeline-step.active {
+  opacity: 1;
+}
+
+.timeline-step.done .step-icon {
+  background: var(--accent);
+  color: #000;
+}
+
+.timeline-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+}
+
+.timeline-step.active:not(:last-child)::after {
+  background: var(--accent);
+}
+
+.step-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.5rem;
+  font-size: 1rem;
+}
+
+.step-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.order-summary h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.order-items {
+  background: rgba(255,255,255,0.02);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(0,255,153,0.1);
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+.order-shipping {
+  background: rgba(255,255,255,0.02);
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.tracking-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.tracking-info {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.02);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.tracking-info h3 {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.tracking-info p {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.tracking-info code {
+  background: rgba(255,255,255,0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .tracking-page {
+    padding: 2rem 1rem;
+  }
+  
+  .tracking-form {
+    flex-direction: column;
+  }
+  
+  .tracking-form .btn {
+    width: 100%;
+  }
+  
+  .tracking-timeline {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .timeline-step {
+    min-width: 70px;
+  }
+  
+  .timeline-step:not(:last-child)::after {
+    display: none;
+  }
+  
+  .tracking-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .tracking-actions {
+    flex-direction: column;
+  }
+}
+/* =====================
+   RETURNS PAGE (Kebijakan Pengembalian)
+===================== */
+
+.returns-page {
+  min-height: 70vh;
+  padding: 4rem 2rem;
+}
+
+.returns-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.returns-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.returns-header h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.returns-header p {
+  color: var(--muted);
+}
+
+/* Grid 4 card */
+.returns-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.returns-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 24px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.returns-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+/* TEMPAT ICON - GANTI GAMBAR DI SINI */
+.returns-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 255, 153, 0.1);
+  border-radius: 50%;
+}
+
+.icon-img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.returns-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+}
+
+.returns-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Section Umum */
+.returns-section {
+  background: rgba(255,255,255,0.02);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.returns-section h2 {
+  font-size: 1.5rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+/* List Syarat */
+.returns-list {
+  list-style: none;
+  padding: 0;
+}
+
+.returns-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.returns-list li:last-child {
+  border-bottom: none;
+}
+
+.returns-list li strong {
+  color: var(--accent);
+}
+
+/* Steps List */
+.steps-list {
+  list-style: none;
+  padding: 0;
+}
+
+.steps-list li {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.steps-list li:last-child {
+  border-bottom: none;
+}
+
+.step-num {
+  width: 40px;
+  height: 40px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 900;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-content strong {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.step-content p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Kontak Section */
+.returns-contact {
+  background: linear-gradient(135deg, rgba(0,255,153,0.1), rgba(0,0,0,0));
+  border-radius: 24px;
+  padding: 3rem;
+  text-align: center;
+}
+
+.returns-contact h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.returns-contact p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.contact-buttons .btn {
+  width: auto;
+  padding: 0.8rem 2rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .returns-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .returns-page {
+    padding: 2rem 1rem;
+  }
+  
+  .returns-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .returns-section {
+    padding: 1.5rem;
+  }
+  
+  .steps-list li {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .contact-buttons {
+    flex-direction: column;
+  }
+  
+  .contact-buttons .btn {
+    width: 100%;
+  }
+}
