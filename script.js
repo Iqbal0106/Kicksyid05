@@ -487,32 +487,23 @@ function goToCart() {
   window.location.href = "cart.html";
 }
 /* =====================
-   FEEDBACK
+   FEEDBACK - UI ENHANCEMENT
 ===================== */
 function cartFeedback() {
+  // Hapus toast yang sudah ada (biar ga numpuk)
+  const existingToast = document.querySelector('.toast-notification');
+  if (existingToast) existingToast.remove();
+  
+  // Buat toast baru
   const toast = document.createElement("div");
-  toast.innerText = "✔ Added to Cart";
-  Object.assign(toast.style, {
-    position: "fixed",
-    bottom: "30px",
-    right: "30px",
-    background: "#00ff99",
-    color: "#000",
-    padding: "12px 18px",
-    borderRadius: "10px",
-    fontWeight: "800",
-    zIndex: 999,
-    boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
-    opacity: 0,
-    transition: "0.3s ease"
-  });
-
+  toast.className = "toast-notification";
+  toast.innerHTML = "Ditambahkan ke keranjang";
+  
   document.body.appendChild(toast);
-  requestAnimationFrame(() => (toast.style.opacity = 1));
-
+  
+  // Auto remove setelah animasi selesai
   setTimeout(() => {
-    toast.style.opacity = 0;
-    setTimeout(() => toast.remove(), 300);
+    if (toast && toast.remove) toast.remove();
   }, 1500);
 }
 
@@ -604,4 +595,74 @@ document.addEventListener("DOMContentLoaded", () => {
       item.classList.toggle("active");
     });
   });
+});
+
+/* =====================
+   SORTING & FILTER PRODUCTS (untuk shop.html)
+===================== */
+
+function sortProducts() {
+  const sortValue = document.getElementById("sortProducts").value;
+  const grid = document.querySelector(".catalog-grid");
+  if (!grid) return;
+  
+  // Ambil semua tile yang sedang TIDAK di-hide oleh filter
+  const tiles = Array.from(grid.querySelectorAll(".tile")).filter(tile => {
+    return tile.style.display !== "none";
+  });
+  
+  if (sortValue === "price-asc") {
+    tiles.sort((a, b) => {
+      let priceA = parseInt(a.querySelector(".price")?.innerText.replace(/[^0-9]/g, "") || 0);
+      let priceB = parseInt(b.querySelector(".price")?.innerText.replace(/[^0-9]/g, "") || 0);
+      return priceA - priceB;
+    });
+  } 
+  else if (sortValue === "price-desc") {
+    tiles.sort((a, b) => {
+      let priceA = parseInt(a.querySelector(".price")?.innerText.replace(/[^0-9]/g, "") || 0);
+      let priceB = parseInt(b.querySelector(".price")?.innerText.replace(/[^0-9]/g, "") || 0);
+      return priceB - priceA;
+    });
+  }
+  else if (sortValue === "name-asc") {
+    tiles.sort((a, b) => {
+      let nameA = a.querySelector(".name")?.innerText.toLowerCase() || "";
+      let nameB = b.querySelector(".name")?.innerText.toLowerCase() || "";
+      return nameA.localeCompare(nameB);
+    });
+  }
+  else if (sortValue === "name-desc") {
+    tiles.sort((a, b) => {
+      let nameA = a.querySelector(".name")?.innerText.toLowerCase() || "";
+      let nameB = b.querySelector(".name")?.innerText.toLowerCase() || "";
+      return nameB.localeCompare(nameA);
+    });
+  }
+  
+  // Urutkan ulang di DOM
+  tiles.forEach(tile => grid.appendChild(tile));
+}
+
+// Update jumlah produk yang tampil
+function updateProductCount() {
+  const countEl = document.getElementById("productCount");
+  if (!countEl) return;
+  
+  const visibleTiles = document.querySelectorAll(".catalog-grid .tile[style='']");
+  const count = visibleTiles.length;
+  countEl.innerText = `Menampilkan ${count} produk`;
+}
+
+// Panggil updateCount setelah filter berubah
+// Modifikasi fungsi applyCatalogFilter yang sudah ada
+const originalApplyFilter = applyCatalogFilter;
+applyCatalogFilter = function() {
+  originalApplyFilter();
+  updateProductCount();
+}
+
+// Init count saat halaman load
+document.addEventListener("DOMContentLoaded", () => {
+  updateProductCount();
 });
