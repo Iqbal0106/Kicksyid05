@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Katalog Produk | Kicksy.id</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Coda+Caption:wght@800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">  
 </head>
 <body class="gradient-bg">
 
@@ -23,13 +22,13 @@
     <div class="actions">
       <div class="search">
         <input id="searchInput" type="text" placeholder="Cari produk..." />
-        <span class="ico"><img src="icon/search.png" alt="Search" style="width: 20px; height: 20px;"></span>
+        <span class="ico"><img src="Icon/search.png" alt="Search" style="width: 20px; height: 20px;"></span>
       </div>
       <div class="user-btn-container">
-        <button class="icon-btn" onclick="userButtonClick()"><img src="icon/user.png" alt="User" style="width: 20px; height: 20px;"></button>
+        <button class="icon-btn" onclick="userButtonClick()" title="Akun"><img src="Icon/user.png" alt="User" style="width: 20px; height: 20px;"></button>
       </div>
-      <button class="icon-btn" onclick="openBag()">
-        <img src="icon/cart.png" alt="Cart" style="width: 20px; height: 20px;">
+      <button class="icon-btn" onclick="openBag()" title="Keranjang">
+        <img src="Icon/cart.png" alt="Cart" style="width: 20px; height: 20px;">
         <span class="badge" id="cartBadge">0</span>
       </button>
     </div>
