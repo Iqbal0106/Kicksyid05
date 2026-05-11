@@ -34,8 +34,14 @@
     <a href="index.html#best">Best Seller</a>
   </div>
 </header>
-
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> / 
+    <a href="shop.html">Katalog</a> / 
+    <span id="breadcrumbName"></span>
+  </div>
 <!-- PRODUCT DETAIL -->
+
 <section class="detail-page">
   <div class="detail-grid">
     <aside class="thumbs">
@@ -44,6 +50,7 @@
       <img src="" class="thumb" onclick="changeImage(this)">
       <img src="" class="thumb" onclick="changeImage(this)">
     </aside>
+    
     <div class="image-main">
       <img id="productImage" src="" alt="Sepatu">
     </div>
@@ -71,6 +78,16 @@
     </div>
   </div>
 </section>
+  <!-- RELATED PRODUCTS SECTION -->
+  <section class="related-products">
+    <div class="related-header">
+      <h3>✨ Anda Mungkin Juga Suka</h3>
+      <a href="shop.html" class="view-all-link">Lihat Semua →</a>
+    </div>
+    <div class="related-grid" id="relatedProducts">
+      <!-- Akan diisi otomatis oleh JavaScript -->
+    </div>
+  </section>
 
 <div id="bagBackdrop" class="bag-backdrop" onclick="closeBag()"></div>
 <div id="bagDrawer" class="bag-drawer">
@@ -87,6 +104,7 @@
   </div>
   <div class="bag-empty" id="bagEmpty">Tas belanja kosong</div>
 </div>
+
 
 <!-- FOOTER -->
 <footer>
@@ -131,6 +149,7 @@
 
   // render data
   document.getElementById("productName").innerText = product.name;
+  document.getElementById("breadcrumbName").innerText = product.name;
   document.getElementById("productPrice").innerText =
     "Rp " + product.price.toLocaleString("id-ID");
   const galleries = {
@@ -289,7 +308,7 @@
   // add to cart + size
   function addToCartFromDetail() {
     if (!selectedSize) {
-      alert("Pilih size dulu ya 👟");
+      alert("Pilih size dulu ya");
       return;
     }
 
@@ -305,6 +324,71 @@
     updateCartBadge();
     cartFeedback();
   }
+    // =====================
+  // RELATED PRODUCTS
+  // =====================
+  function loadRelatedProducts() {
+    const container = document.getElementById("relatedProducts");
+    if (!container) return;
+    
+    const currentProduct = product;
+    if (!currentProduct) return;
+    
+    // Daftar produk rekomendasi
+    const allProducts = [
+      { name: "Nike Dunk Low Retro", price: 1549000, image: "images/Nike Dunk Low Retro 1.avif" },
+      { name: "Nike Zoom Vomero 5", price: 2489000, image: "images/Nike Zoom Vomero 5(1).avif" },
+      { name: "Adidas GAZELLE LO PRO SHOES", price: 1700000, image: "images/Adidas GAZELLE LO PRO SHOES 1.avif" },
+      { name: "PUMA x SPARCO Speedcat", price: 1999000, image: "images/PUMA x SPARCO Speedcat OG(1).avif" },
+      { name: "PUMA x SPARCO Speedcat red", price: 1999000, image: "images/PUMA x SPARCO Speedcat red(1).avif" },
+      { name: "Salomon XT-6 GORE-TEX", price: 2699000, image: "images/XT-6 GORE-TEX 1.avif" },
+      { name: "Onitsuka Tiger TOKUTEN", price: 1499000, image: "images/Onitsuka Tiger TOKUTEN.webp" },
+      { name: "Adidas Handball Spezial", price: 1699000, image: "images/Adidas Handball Spezial Blue.avif" },
+      { name: "New Balance 574 trainers", price: 1399000, image: "images/new-balance-574-trainers.webp" },
+      { name: "Kanky x STAPLE EXC 01 Gosht White", price: 540000, image: "images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_a_1761195600198_resized1024-jpg.webp" },
+      { name: "Kanky Story Kitadake - Kanky Sportstyle", price: 440000, image: "images lokal/Kitadake___All_Black_a_1760412869132_resized1024-jpg.webp" }
+    ];
+    
+    // Filter: buang produk yang sedang dilihat
+    let related = allProducts.filter(p => p.name !== currentProduct.name);
+    
+    // Acak urutan dan ambil 4 produk
+    related = related.sort(() => 0.5 - Math.random()).slice(0, 4);
+    
+    // Render ke HTML
+    container.innerHTML = related.map(p => `
+      <div class="related-card" onclick="goToProduct('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}')">
+        <img src="${p.image}" alt="${p.name}" onerror="this.src='images/placeholder.png'">
+        <div class="name">${p.name.length > 35 ? p.name.substring(0, 32) + '...' : p.name}</div>
+        <div class="price">Rp ${p.price.toLocaleString("id-ID")}</div>
+        <button class="add-btn" onclick="event.stopPropagation(); addToCartFromRelated('${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.image}')">🛒 Tambah</button>
+      </div>
+    `).join('');
+  }
+  
+  function goToProduct(name, price, image) {
+    localStorage.setItem("selectedProduct", JSON.stringify({ name, price, image }));
+    window.location.href = "product.html";
+  }
+  
+  function addToCartFromRelated(name, price, image) {
+    const size = selectedSize || "40";
+    
+    cart.push({
+      name: name,
+      price: price,
+      image: image,
+      size: size,
+      qty: 1
+    });
+    
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartBadge();
+    cartFeedback();
+  }
+  
+  // Panggil fungsi saat halaman load
+  loadRelatedProducts();
 </script>
 
 </body>
