@@ -1,436 +1,330 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panggil Aja - Solusi Laundry & Cleaning Profesional</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="styles/main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kicksy.id — Streetwear Sneakers</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="promo-banner">
-    <p><i data-lucide="zap"></i> Diskon 20% untuk pelanggan pertama! <a href="promo.html" style="color:white">Lihat Promo</a></p>
+<header class="header">
+  <div class="bar top">
+    <div class="left">
+      <a href="#faq">FAQ</a>
+      <a href="tracking.html">pelacak pesanan</a>
+    </div>
+  </div>
+  <div class="bar main">
+  <img class="logo" src="images/logo kicksy.jpeg" alt="Kicksy.id logo" />
+  <div class="actions">
+    <div class="search">
+      <input id="searchInput" type="text" placeholder="Cari produk..." />
+        <span class="ico"><img src="Icon/search.png" alt="Search" style="width: 20px; height: 20px;"></span>
+    </div>
+    <div class="user-btn-container">
+      <button class="icon-btn" onclick="userButtonClick()" title="Akun">
+        <img src="Icon/user.png" alt="User" style="width: 20px; height: 20px;">
+        </button>
+    </div>
+    <button class="icon-btn" onclick="openBag()" title="Keranjang">
+      <img src="Icon/cart.png" alt="Cart" style="width: 20px; height: 20px;">
+      <span class="badge" id="cartBadge">0</span>
+    </button>
+  </div>
 </div>
-<header>
-    <div class="container nav-container">
-        <a href="index.html" class="logo">
-            <img src="Images/logo.png" alt="Logo Panggil Aja">
-        </a>
-        <nav id="nav-menu">
-            <a href="index.html"><i data-lucide="home"></i> Home</a>
-            <a href="index.html#layanan"><i data-lucide="layers"></i> Layanan</a>
-            <a href="promo.html"><i data-lucide="tag"></i> Promo</a>
-            <a href="faq.html"><i data-lucide="help-circle"></i> FAQ</a>
-            <a href="tracking.html"><i data-lucide="clock"></i> Status</a>
-            <a href="booking.html" class="nav-cta"><i data-lucide="calendar-check"></i> Booking</a>
-        </nav>
-        <button class="hamburger" id="hamburger-btn"><i data-lucide="menu"></i></button>
-    </div>
+  <div class="bar sub">
+    <a href="index.html" class="active">Home</a>
+    <a href="shop.html">Katalog</a>
+    <a href="#promo">Promo</a>
+    <a href="#best">Best Seller</a>
+    <a href="#about">Tentang</a>
+  </div>
 </header>
-<section class="hero" id="home">
-    <div class="hero-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-    </div>
-    <div class="hero-content container">
-        <div class="hero-text">
-            <span class="badge"><i data-lucide="sparkles"></i> Terpercaya di Makassar</span>
-            <h1>Solusi Bersih <span class="highlight-text">Tanpa Ribet</span></h1>
-            <p>Layanan <span class="text-primary">Laundry & Cleaning</span> premium untuk kenyamanan rumah Anda. Cukup pesan, kami datang!</p>
-            <div class="hero-btns">
-                <a href="booking.html" class="btn-primary">Mulai Pesan <i data-lucide="arrow-right"></i></a>
-                <a href="#layanan" class="btn-secondary">Lihat Layanan</a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-icon"><i data-lucide="users"></i></div>
-                    <div><h3>10+</h3><p>Pelanggan</p></div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon"><i data-lucide="star"></i></div>
-                    <div><h3>4/5</h3><p>Rating</p></div>
-                </div>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="hero-main-img">
-                <div class="img-blob"></div>
-                <img src="Jasa/Bersih rumah 2.png" alt="Professional Cleaning Service" class="hero-img">
-                <div class="technician-note">
-                    <i data-lucide="map-pin"></i>
-                    <div>
-                        <strong>Rafi - Teknisi Utama</strong>
-                        <p>2.1 km dari lokasi Anda</p>
-                    </div>
-                </div>
-                <div class="floating-badge badge-1">
-                    <div class="icon-box"><i data-lucide="shield-check"></i></div>
-                    <span>100% Higienis</span>
-                </div>
-                <div class="floating-badge badge-2">
-                    <div class="icon-box"><i data-lucide="clock"></i></div>
-                    <span>Kilat 24 Jam</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section bg-light">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-badge">Keunggulan</span>
-            <h2>Kenapa Pilih Panggil Aja?</h2>
-            <p class="section-desc">Kami memberikan standar pelayanan tertinggi untuk kepuasan Anda.</p>
-        </div>
-        <div class="grid feature-grid">
-            <div class="feature-card">
-                <div class="feature-icon-wrapper"><i data-lucide="shield-check"></i></div>
-                <h3>Terjamin Aman</h3>
-                <p>Pekerja profesional pilihan dengan latar belakang terverifikasi.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon-wrapper"><i data-lucide="clock"></i></div>
-                <h3>Tepat Waktu</h3>
-                <p>Kami menghargai waktu Anda. Layanan selesai sesuai jadwal.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon-wrapper"><i data-lucide="award"></i></div>
-                <h3>Kualitas Premium</h3>
-                <p>Menggunakan alat dan bahan pembersih standar hotel berbintang.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon-wrapper"><i data-lucide="headphones"></i></div>
-                <h3>Respon Cepat</h3>
-                <p>Admin responsif siap membantu pesanan dan pertanyaan Anda.</p>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-badge">Proses</span>
-            <h2>3 Langkah Mudah</h2>
-            <p class="section-desc">Hanya butuh beberapa menit untuk mendapatkan rumah yang bersih dan rapi.</p>
-        </div>
-        <div class="grid steps-grid">
-            <div class="step-card">
-                <div class="step-number">01</div>
-                <div class="step-icon"><i data-lucide="mouse-pointer-click"></i></div>
-                <h3>Pilih Layanan</h3>
-                <p>Pilih layanan yang Anda butuhkan dan hitung estimasi biayanya.</p>
-                <div class="step-line"></div>
-            </div>
-            <div class="step-card">
-                <div class="step-number">02</div>
-                <div class="step-icon"><i data-lucide="calendar-check"></i></div>
-                <h3>Booking Online</h3>
-                <p>Isi formulir pesanan dan tentukan waktu pengerjaan yang diinginkan.</p>
-                <div class="step-line"></div>
-            </div>
-            <div class="step-card">
-                <div class="step-number">03</div>
-                <div class="step-icon"><i data-lucide="sparkles"></i></div>
-                <h3>Duduk Santai</h3>
-                <p>Tim kami datang dan menyelesaikan pekerjaan. Nikmati hasilnya!</p>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section" id="layanan">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-badge">Layanan Kami</span>
-            <h2>Apa yang Bisa Kami Bantu?</h2>
-            <p class="section-desc">Pilih layanan yang Anda butuhkan dan biarkan tim profesional kami yang menangani sisanya.</p>
-        </div>
-        <div class="grid services-grid">
-            <a href="booking.html?service=laundry" class="card service-card">
-                <div class="card-image-wrapper">
-                    <img src="Jasa/Laundry2.png" alt="Laundry Service" class="card-img">
-                    <div class="card-overlay"></div>
-                </div>
-                <div class="card-content">
-                    <div class="card-icon-box"><i data-lucide="shirt"></i></div>
-                    <h3>Laundry</h3>
-                    <p>Cuci kilat, kiloan, hingga satuan dengan deterjen ramah lingkungan dan pewangi tahan lama.</p>
-                    <div class="card-footer">
-                        <span class="price-start">Mulai Rp7.000</span>
-                        <span class="card-cta">Pesan <i data-lucide="arrow-right"></i></span>
-                    </div>
-                </div>
-            </a>
-            <a href="booking.html?service=cleaning" class="card service-card">
-                <div class="card-image-wrapper">
-                    <img src="Jasa/Bersih rumah 2.png" alt="Cleaning Service" class="card-img">
-                    <div class="card-overlay"></div>
-                </div>
-                <div class="card-content">
-                    <div class="card-icon-box"><i data-lucide="home"></i></div>
-                    <h3>Cleaning</h3>
-                    <p>Pembersihan rutin rumah, apartemen, atau kantor. Menyapu, mengepel, hingga membersihkan debu.</p>
-                    <div class="card-footer">
-                        <span class="price-start">Mulai Rp100.000</span>
-                        <span class="card-cta">Pesan <i data-lucide="arrow-right"></i></span>
-                    </div>
-                </div>
-            </a>
-            <a href="booking.html?service=deep-cleaning" class="card service-card">
-                <div class="card-image-wrapper">
-                    <img src="Jasa/Deep cleaning.png" alt="Deep Cleaning Service" class="card-img">
-                    <div class="card-overlay"></div>
-                </div>
-                <div class="card-content">
-                    <div class="card-icon-box"><i data-lucide="sparkles"></i></div>
-                    <h3>Deep Cleaning</h3>
-                    <p>Pembersihan menyeluruh untuk noda membandel, kerak kamar mandi, hingga sterilisasi ruangan.</p>
-                    <div class="card-footer">
-                        <span class="price-start">Mulai Rp250.000</span>
-                        <span class="card-cta">Pesan <i data-lucide="arrow-right"></i></span>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
-<section class="section bg-light">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-badge">Hasil Nyata</span>
-            <h2>Before & After Cleaning</h2>
-            <p class="section-desc">Lihat perbedaan nyata hasil pengerjaan tim profesional kami.</p>
-        </div>
-        <div class="grid ba-grid">
-            <div class="ba-card">
-                <div class="ba-images">
-                    <div class="ba-img-container">
-                        <img src="Images/Before kamar mandi.png" alt="Before pembersihan kamar mandi" class="ba-img" loading="lazy">
-                        <span class="ba-label before">Before</span>
-                    </div>
-                    <div class="ba-img-container">
-                        <img src="Images/After kamar mandi.png" alt="After pembersihan kamar mandi" class="ba-img" loading="lazy">
-                        <span class="ba-label after">After</span>
-                    </div>
-                </div>
-                <div class="ba-content">
-                    <h3>Pembersihan Kamar Mandi</h3>
-                    <p>Menghilangkan noda membandel dan jamur hingga bersih mengkilap.</p>
-                </div>
-            </div>
-            <div class="ba-card">
-                <div class="ba-images">
-                    <div class="ba-img-container">
-                        <img src="Images/Before sofa.png" alt="Before pembersihan sofa" class="ba-img" loading="lazy">
-                        <span class="ba-label before">Before</span>
-                    </div>
-                    <div class="ba-img-container">
-                        <img src="Images/After sofa.png" alt="After pembersihan sofa" class="ba-img" loading="lazy">
-                        <span class="ba-label after">After</span>
-                    </div>
-                </div>
-                <div class="ba-content">
-                    <h3>Vacuum Sofa & Kasur</h3>
-                    <p>Pembersihan tungau dan debu mendalam untuk kesehatan keluarga.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section" id="harga">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-badge">Harga Transparan</span>
-            <h2>Estimasi Biaya Laundry</h2>
-            <p class="section-desc">Hitung biaya laundry Anda secara instan sebelum melakukan pemesanan.</p>
-        </div>
-        <div class="calculator-container">
-            <div class="calc-header">
-                <i data-lucide="calculator"></i>
-                <h3>Kalkulator Biaya</h3>
-            </div>
-            <div class="calc-box">
-                <div class="calc-input">
-                    <label>Berat (kg)</label>
-                    <div class="input-with-icon">
-                        <i data-lucide="weight"></i>
-                        <input type="number" id="calc-weight" placeholder="0">
-                    </div>
-                </div>
-                <div class="calc-input">
-                    <label>Jenis Layanan</label>
-                    <div class="input-with-icon">
-                        <i data-lucide="zap"></i>
-                        <select id="calc-service">
-                            <option value="7000">Reguler (2-3 Hari) - Rp7.000</option>
-                            <option value="12000">Ekspres (1 Hari) - Rp12.000</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="calc-result-box">
-                    <p>Total Estimasi:</p>
-                    <h3 id="calc-total">Rp 0</h3>
-                    <a href="booking.html?service=laundry" class="btn-primary btn-calc-cta hidden" id="calc-cta">Pesan Sekarang <i data-lucide="arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="grid pricing-grid">
-            <div class="card pricing-card featured">
-                <div class="pricing-badge">Populer</div>
-                <h3>Laundry Kiloan</h3>
-                <div class="price-box">
-                    <span class="currency">Rp</span>
-                    <span class="amount">7.000</span>
-                    <span class="unit">/kg</span>
-                </div>
-                <ul class="pricing-features">
-                    <li><i data-lucide="check"></i> Cuci + Kering</li>
-                    <li><i data-lucide="check"></i> Setrika Rapi</li>
-                    <li><i data-lucide="check"></i> Wangi Tahan Lama</li>
-                    <li><i data-lucide="check"></i> Lipat Rapi</li>
-                </ul>
-                <a href="booking.html?service=laundry" class="btn-primary">Pesan Laundry</a>
-            </div>
-            <div class="card pricing-card">
-                <h3>Cleaning Rumah</h3>
-                <div class="price-box">
-                    <span class="currency">Rp</span>
-                    <span class="amount">100.000</span>
-                </div>
-                <ul class="pricing-features">
-                    <li><i data-lucide="check"></i> Sapu & Pel Seluruh Ruangan</li>
-                    <li><i data-lucide="check"></i> Lap Debu Furnitur</li>
-                    <li><i data-lucide="check"></i> Bersihkan Kamar Mandi</li>
-                    <li><i data-lucide="check"></i> Cuci Piring Ringan</li>
-                </ul>
-                <a href="booking.html?service=cleaning" class="btn-primary">Pesan Cleaning</a>
-            </div>
-            <div class="card pricing-card">
-                <h3>Deep Cleaning</h3>
-                <div class="price-box">
-                    <span class="currency">Rp</span>
-                    <span class="amount">250.000</span>
-                </div>
-                <ul class="pricing-features">
-                    <li><i data-lucide="check"></i> Detail Cleaning Kamar Mandi</li>
-                    <li><i data-lucide="check"></i> Vakum Tungau Kasur/Sofa</li>
-                    <li><i data-lucide="check"></i> Sterilisasi Ruangan</li>
-                    <li><i data-lucide="check"></i> Pembersihan Kerak Membandel</li>
-                </ul>
-                <a href="booking.html?service=deep-cleaning" class="btn-primary">Pesan Deep Clean</a>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section bg-light">
-    <div class="container">
-        <span class="section-badge">Testimoni</span>
-        <h2>Apa Kata Mereka?</h2>
-        <div class="grid">
-            <div class="card testimonial-card">
-                <div class="user-profile">
-                    <img src="testimoni/zee.jpg" alt="Zee">
-                    <div class="user-meta">
-                        <strong>Zee</strong>
-                        <span class="user-location">📍 Panakkukang, Makassar</span>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>"Laundry kilat 6 jam beneran selesai tepat waktu! Baju kerja saya balik dalam kondisi rapi dan wangi. Cocok banget buat yang sibuk kayak saya."</p>
-            </div>
-            <div class="card testimonial-card">
-                <div class="user-profile">
-                    <img src="testimoni/vincent.jpg" alt="Vincent">
-                    <div class="user-meta">
-                        <strong>Vincent</strong>
-                        <span class="user-location">📍 Tamalanrea, Makassar</span>
-                        <div class="stars">★★★★☆</div>
-                    </div>
-                </div>
-                <p>"Deep cleaning apartemen 2 kamar, kerak kamar mandi yang udah bertahun-tahun akhirnya bersih juga. Petugasnya ramah dan kerja cepat. Cuma agak susah parkir di komplek saya, tapi overall puas!"</p>
-            </div>
-            <div class="card testimonial-card">
-                <div class="user-profile">
-                    <img src="testimoni/bernadya.jpg" alt="Bernadya">
-                    <div class="user-meta">
-                        <strong>Bernadya</strong>
-                        <span class="user-location">📍 Rappocini, Makassar</span>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>"Sudah langganan cleaning rutin 2x sebulan. Petugasnya selalu tepat waktu, sopan, dan detail kalau bersihin sudut-sudut yang sering kelewat. Sangat membantu di tengah kesibukan kantor!"</p>
-            </div>
-            <div class="card testimonial-card">
-                <div class="user-profile">
-                    <img src="testimoni/default.jpg" alt="Andi Rizal">
-                    <div class="user-meta">
-                        <strong>Andi Rizal</strong>
-                        <span class="user-location">📍 Manggala, Makassar</span>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>"Pertama coba karena ada diskon 20%, eh ternyata hasilnya memuaskan. Sofa sama kasur divakum bersih, tungaunya hilang dan tidur jadi lebih nyenyak. Langsung pesan lagi minggu depannya!"</p>
-            </div>
-        </div>
-    </div>
-</section>
-<footer>
-    <div class="container">
-        <div class="footer-brand">
-            <a href="index.html" class="footer-logo">
-                <img src="Images/logo.png" alt="Logo Panggil Aja">
-            </a>
-            <p>Solusi kebersihan profesional untuk rumah dan pakaian Anda. Cepat, bersih, dan terpercaya.</p>
-        </div>
 
-        <div class="footer-info">
-            <div class="footer-info-item">
-                <h4>Jam Operasional</h4>
-                <p>Senin–Sabtu, 08.00–20.00 WITA</p>
-            </div>
-            <div class="footer-info-item">
-                <h4>Area Jangkauan</h4>
-                <p>Panakkukang, Tamalanrea, Rappocini, dan sekitarnya.</p>
-            </div>
-        </div>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Layanan</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html#layanan">Cleaning</a></li>
-                    <li><a href="index.html#layanan">Laundry</a></li>
-                    <li><a href="index.html#layanan">Deep Cleaning</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Bantuan</h4>
-                <ul class="footer-links">
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="promo.html">Promo</a></li>
-                    <li><a href="tracking.html">Lacak</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Kontak</h4>
-                <ul class="footer-contact-info">
-                    <li>WhatsApp</li>
-                    <li>Makassar</li>
-                    <li>0895413318989</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 Panggil Aja</p>
-        </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Streetwear Stars<br> From Your Feet</h1>
+    <p>Dapatkan koleksi sneakers terbaik dari brand global hingga lokal hanya di Kicksy.id</p>
+    <div class="hero-btns">
+      <a href="shop.html" class="btn">Belanja Sekarang</a>
     </div>
+  </div>
+</section>
+
+<section class="product-section promo-section" id="promo">
+  <h2>Promo Minggu Ini</h2>
+  <div class="products promo-grid">
+    <div class="card promo-card" onclick="openDetail('Kanky x STAPLE EXC 01 Gosht White',540000,'images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_a_1761195600198_resized1024-jpg.webp','lokal')">
+      <div class="badge-promo">-10%</div>
+      <div class="promo-images">
+        <img src="images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_a_1761195600198_resized1024-jpg.webp" alt="Kanky x STAPLE 1">
+        <img src="images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_b_1761195600281_resized1024 4-jpg.webp" alt="Kanky x STAPLE 2">
+        <img src="images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_d_1761195600428_resized1024 2-jpg.webp" alt="Kanky x STAPLE 3">
+      </div>
+      <div class="title">Kanky x STAPLE EXC 01 Gosht White</div>
+      <div class="price-row">
+        <span class="price-old">Rp 600.000</span>
+        <span class="price">Rp 540.000</span>
+      </div>
+      <button class="btn" onclick="event.stopPropagation(); addToCart('Kanky x STAPLE EXC 01 Gosht White',540000,'images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_a_1761195600198_resized1024-jpg.webp')">Add to Cart</button>
+    </div>
+    <div class="card promo-card" onclick="openDetail('Kanky Story Kitadake - Kanky Sportstyle',440000,'images lokal/Kitadake___All_Black_a_1760412869132_resized1024-jpg.webp','lokal')">
+      <div class="badge-promo">-10%</div>
+      <div class="promo-images">
+        <img src="images lokal/Kitadake___All_Black_a_1760412869132_resized1024-jpg.webp" alt="Kitadake 1">
+        <img src="images lokal/Kitadake___All_Black_b_1760412869223_resized1024 3-jpg.webp" alt="Kitadake 2">
+        <img src="images lokal/Kitadake___All_Black_c_1760412869283_resized1024 2-jpg.webp" alt="Kitadake 3">
+      </div>
+      <div class="title">Kanky Story Kitadake</div>
+      <div class="price-row">
+        <span class="price-old">Rp 490.000</span>
+        <span class="price">Rp 440.000</span>
+      </div>
+      <button class="btn" onclick="event.stopPropagation(); addToCart('Kanky Story Kitadake - Kanky Sportstyle',440000,'images lokal/Kitadake___All_Black_a_1760412869132_resized1024-jpg.webp')">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT SLIDER -->
+<section class="product-section">
+  <h2>Recommended For You</h2>
+
+  <div class="slider-wrapper">
+    <button class="slide-btn left" onclick="slideLeft()">‹</button>
+
+    <div class="product-slider" id="slider">
+      <div class="product-card" onclick="openDetail('Nike Dunk Low Retro',1549000,'images/Nike Dunk Low Retro 1.avif')">
+        <img src="images/Nike Dunk Low Retro 1.avif">
+        <h3>Nike Dunk Low Retro</h3>
+        <p class="variant">Sneakers Shoes · Black/White</p>
+        <p class="price">Rp 1.549.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Nike Dunk Low Retro',1549000,'images/Nike Dunk Low Retro 1.avif')">Add to Cart</button>
+      </div>
+      <div class="product-card" onclick="openDetail('Nike Zoom Vomero 5',2489000,'images/Nike Zoom Vomero 5(1).avif')">
+        <img src="images/Nike Zoom Vomero 5(1).avif">
+        <h3>Nike Zoom Vomero 5</h3>
+        <p class="variant">Sneakers Shoes · Silver</p>
+        <p class="price">Rp 2.489.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Nike Zoom Vomero 5',2489000,'images/Nike Zoom Vomero 5(1).avif')">Add to Cart</button>
+      </div>
+      <div class="product-card" onclick="openDetail('Adidas GAZELLE LO PRO SHOES',1700000,'images/Adidas GAZELLE LO PRO SHOES 1.avif')">
+        <img src="images/Adidas GAZELLE LO PRO SHOES 1.avif">
+        <h3>Adidas GAZELLE LO PRO SHOES</h3>
+        <p class="variant">Running · Black</p>
+        <p class="price">Rp 1.700.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Adidas GAZELLE LO PRO SHOES',1700000,'images/Adidas GAZELLE LO PRO SHOES 1.avif')">Add to Cart</button>
+      </div>
+      <div class="product-card" onclick="openDetail('PUMA x SPARCO Speedcat',1999000,'images/PUMA x SPARCO Speedcat OG(1).avif')">
+        <img src="images/PUMA x SPARCO Speedcat OG(1).avif">
+        <h3>PUMA x SPARCO Speedcat</h3>
+        <p class="variant">Sneakers Shoes · Black</p>
+        <p class="price">Rp 1.999.000</p>
+        <button onclick="event.stopPropagation(); addToCart('PUMA x SPARCO Speedcat',1999000,'images/PUMA x SPARCO Speedcat OG(1).avif')">Add to Cart</button>
+      </div>
+      <div class="product-card" onclick="openDetail('PUMA x SPARCO Speedcat red',1999000,'images/PUMA x SPARCO Speedcat red(1).avif')">
+        <img src="images/PUMA x SPARCO Speedcat red(1).avif">
+        <h3>PUMA x SPARCO Speedcat red</h3>
+        <p class="variant">Sneakers Shoes · Red</p>
+        <p class="price">Rp 1.999.000</p>
+        <button onclick="event.stopPropagation(); addToCart('PUMA x SPARCO Speedcat red',1999000,'images/PUMA x SPARCO Speedcat red(1).avif')">Add to Cart</button>
+      </div>
+      <div class="product-card" onclick="openDetail('Salomon XT-6 GORE-TEX',2699000,'images/XT-6 GORE-TEX 1.avif')">
+        <img src="images/XT-6 GORE-TEX 1.avif">
+        <h3>Salomon XT-6 GORE-TEX</h3>
+        <p class="variant">Trail · Black/Silver</p>
+        <p class="price">Rp 2.699.000</p>
+        <button onclick="event.stopPropagation(); addToCart('Salomon XT-6 GORE-TEX',2699000,'images/XT-6 GORE-TEX 1.avif')">Add to Cart</button>
+      </div>
+    </div>
+
+    <button class="slide-btn right" onclick="slideRight()">›</button>
+  </div>
+</section>
+
+<!-- BEST SELLER -->
+  <section id="best">
+    <h2>Best Seller</h2>
+
+    <div class="products">
+      <div class="card" onclick="openDetail('Onitsuka Tiger TOKUTEN',1499000,'images/Onitsuka Tiger TOKUTEN.webp')">
+        <img src="images/Onitsuka Tiger TOKUTEN.webp">
+        <div class="title">Onitsuka Tiger TOKUTEN</div>
+        <div class="price">Rp 1.499.000</div>
+        <button class="btn" onclick="event.stopPropagation(); addToCart('Onitsuka Tiger TOKUTEN',1499000,'images/Onitsuka Tiger TOKUTEN.webp')">Add to Cart</button>
+      </div>
+      <div class="card" onclick="openDetail('PUMA x SPARCO Speedcat',1999000,'images/PUMA x SPARCO Speedcat OG(1).avif')">
+         <img src="images/PUMA x SPARCO Speedcat OG(2).avif">
+         <div class="title">PUMA x SPARCO Speedcat</div>
+         <div class="price">Rp 1.999.000</div>
+         <button class="btn" onclick="event.stopPropagation(); addToCart('PUMA x SPARCO Speedcat',1999000,'images/PUMA x SPARCO Speedcat OG(1).avif')">Add to Cart</button>
+       </div>
+      <div class="card" onclick="openDetail('Adidas Handball Spezial',1699000,'images/Adidas Handball Spezial Blue.avif')">
+        <img src="images/Adidas Handball Spezial Blue (4).avif">
+        <div class="title">Adidas Handball Spezial</div>
+        <div class="price">Rp 1.699.000</div>
+        <button class="btn" onclick="event.stopPropagation(); addToCart('Adidas Handball Spezial',1699000,'images/Adidas Handball Spezial Blue.avif')">Add to Cart</button>
+      </div>
+      <div class="card" onclick="openDetail('New Balance 574 trainers',1399000,'images/new-balance-574-trainers.webp')">
+        <img src="images/new-balance-574-trainers (3).webp">
+        <div class="title">New Balance 574 trainers</div>
+        <div class="price">Rp 1.399.000</div>
+        <button class="btn" onclick="event.stopPropagation(); addToCart('New Balance 574 trainers',1399000,'images/new-balance-574-trainers.webp')">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+<!-- COMMENTS SECTION -->
+<section class="testimonials" id="comments">
+  <div class="comments-header">
+    <h2>Apa Kata Mereka?</h2>
+    <button id="toggleCommentsBtn" class="toggle-btn" onclick="toggleComments()">Sembunyikan Komentar</button>
+  </div>
+  
+  <div id="commentsContent">
+    <div class="comment-form-container">
+      <form id="commentForm" onsubmit="event.preventDefault(); addComment();">
+      <div class="form-row">
+        <input type="text" id="commentName" placeholder="Nama Anda" required>
+        <div class="stars-input">
+          <select id="commentRating" required>
+            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+            <option value="4">⭐⭐⭐⭐ (4/5)</option>
+            <option value="3">⭐⭐⭐ (3/5)</option>
+            <option value="2">⭐⭐ (2/5)</option>
+            <option value="1">⭐ (1/5)</option>
+          </select>
+        </div>
+      </div>
+      <textarea id="commentText" placeholder="Tulis komentar Anda tentang Kicksy.id..." required></textarea>
+      <button type="submit" class="btn">Kirim Komentar</button>
+    </form>
+  </div>
+
+  <div class="testimonial-grid" id="commentList">
+    <!-- Komentar Statis (Default) -->
+    <div class="testi-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>"Sepatu Kanky nya original banget, pengiriman cepet dan CS nya ramah. Bakal langganan di sini!"</p>
+      <div class="user">- Andi, Jakarta</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>"Dapet promo KICKSY10 lumayan banget buat beli Nike Dunk. Barang sampe dengan aman pake double box."</p>
+      <div class="user">- Budi, Bandung</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>"Gak nyangka brand lokal sekarang kualitasnya oke banget. Thanks Kicksy udah kurasi produk lokal!"</p>
+      <div class="user">- Citra, Surabaya</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="about-container">
+    <h1 class="about-title">KICKSY.ID — LANGKAH GAYA LO DIMULAI DI SINI</h1>
+    
+    <div class="about-content">
+      <p>Kicksy ID hadir buat lo yang ingin tampil keren, simpel, dan percaya diri lewat pilihan sepatu terbaik. Berdiri sejak 2024, kami menyediakan sepatu pria dan wanita dari brand lokal maupun internasional, dengan kualitas yang terjamin dan gaya yang selalu up-to-date.</p>
+      
+      <p>Buat kami, sepatu bukan cuma pelengkap outfit, tapi bagian penting dari identitas diri. Karena itu, setiap produk di Kicksy ID dipilih dengan mempertimbangkan desain, kenyamanan, dan tren terbaru—cocok buat aktivitas sehari-hari sampai hangout.</p>
+      
+      <p>Kicksy ID bukan sekadar toko sepatu, tapi tempat buat lo mengekspresikan diri tanpa batas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact & Social</h2>
+  <div class="socials">
+    <a href="https://wa.me/62895413318989">WhatsApp</a>
+    <a href="https://https://www.instagram.com/iqbalibl01?igsh=MW15OGVkajcyODZ3Mw==">Instagram</a>
+    <a href="https://tiktok.com/@butterscotch_016">TikTok</a>
+  </div>
+</section>
+
+<div id="bagBackdrop" class="bag-backdrop" onclick="closeBag()"></div>
+<div id="bagDrawer" class="bag-drawer">
+  <div class="bag-head">
+    <div>Tas Belanja</div>
+    <button class="close" onclick="closeBag()">×</button>
+  </div>
+  <div id="bagItems" class="bag-items"></div>
+  <div class="bag-foot">
+    <div class="totals">Total: <span id="bagTotal">Rp 0</span></div>
+    <div class="actions">
+      <button class="btn" onclick="goToCart()">Lihat Keranjang</button>
+    </div>
+  </div>
+  <div class="bag-empty" id="bagEmpty">Tas belanja kosong</div>
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-wrap">
+    <h2>Stay updated bareng Kicksy ID</h2>
+    <p>Dapatkan info rilisan terbaru dari brand lokal & global, plus promo menarik langsung ke kamu.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Terima kasih sudah berlangganan!');">
+      <input type="email" placeholder="Alamat Email Anda" required>
+      <button type="submit" class="btn">Daftar Sekarang</button>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <h2>FAQ</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">Apakah sepatu original?</button>
+    <div class="faq-answer">Ya, semua produk di Kicksy ID original.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Berapa lama pengiriman?</button>
+    <div class="faq-answer">Estimasi 2–5 hari kerja.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">KICKSY</div>
+      <p>Destinasi utama sneakerhead Indonesia untuk koleksi brand global dan lokal terbaik.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Belanja</h4>
+      <a href="shop.html">Katalog</a>
+      <a href="#promo">Promo</a>
+      <a href="#best">Best Seller</a>
+    </div>
+    <div class="footer-links">
+      <h4>Bantuan</h4>
+      <a href="#faq">FAQ</a>
+      <a href="tracking.html">Pelacak pesanan</a>
+      <a href="returns.html">Kebijakan Pengembalian</a>
+    </div>
+    <div class="footer-links">
+      <h4>Stay Connected</h4>
+      <a href="https://www.instagram.com/iqbalibl01?igsh=MW15OGVkajcyODZ3Mw==">Instagram</a>
+      <a href="https://tiktok.com/@butterscotch_016">TikTok</a>
+      <a href="https://wa.me/62895413318989">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 kicksy.id — All Rights Reserved</p>
+  </div>
 </footer>
-<a href="https://wa.me/62895413318989" class="wa-floating"><i data-lucide="message-circle"></i><span>Tanya Admin</span></a>
+
 <script src="script.js"></script>
-<script src="script.js"></script>
-<script src="kalkulator.js"></script>
-<script>lucide.createIcons();</script>
+
 </body>
 </html>
