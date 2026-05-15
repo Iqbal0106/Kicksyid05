@@ -801,3 +801,55 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 });
+// Toggle Wishlist (Favorit)
+function toggleFav(productName) {
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  const index = wishlist.indexOf(productName);
+  
+  if (index === -1) {
+    wishlist.push(productName);
+    showToast(`${productName} ditambahkan ke wishlist ❤️`);
+  } else {
+    wishlist.splice(index, 1);
+    showToast(`${productName} dihapus dari wishlist`, "warning");
+  }
+  
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  
+  // Update tampilan icon fav
+  const favBtns = document.querySelectorAll(".fav");
+  favBtns.forEach(btn => {
+    const tile = btn.closest(".tile");
+    if (tile) {
+      const nameEl = tile.querySelector(".name");
+      if (nameEl && nameEl.innerText === productName) {
+        if (index === -1) btn.classList.add("active");
+        else btn.classList.remove("active");
+      }
+    }
+  });
+}
+
+// Toast untuk feedback
+function showToast(message, type = "success") {
+  const existingToast = document.querySelector('.toast-notification');
+  if (existingToast) existingToast.remove();
+  
+  const toast = document.createElement("div");
+  toast.className = "toast-notification";
+  toast.innerHTML = message;
+  
+  if (type === "warning") {
+    toast.style.background = "#ff3b3b";
+    toast.style.color = "#fff";
+  } else {
+    toast.style.background = "#00ff99";
+    toast.style.color = "#000";
+  }
+  
+  document.body.appendChild(toast);
+  
+  setTimeout(() => {
+    if (toast && toast.remove) toast.remove();
+  }, 2000);
+}

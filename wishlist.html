@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wishlist | Kicksy.id</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="gradient-bg">
+
+<header class="header">
+  <div class="bar top">
+    <div class="left">
+      <a href="index.html#faq">FAQ</a>
+      <a href="tracking.html">pelacak pesanan</a>
+    </div>
+  </div>
+  <div class="bar main">
+    <img class="logo" src="images/logo kicksy.jpeg" alt="Kicksy.id logo" onclick="window.location.href='index.html'" style="cursor:pointer" />
+    <div class="actions">
+      <div class="search">
+        <input id="searchInput" type="text" placeholder="Cari produk..." />
+        <span class="ico"><img src="Icon/search.png" alt="Search" style="width: 20px; height: 20px;"></span>
+      </div>
+      <div class="user-btn-container">
+        <button class="icon-btn" onclick="userButtonClick()" title="Akun">
+          <img src="Icon/user.png" alt="User" style="width: 20px; height: 20px;">
+        </button>
+      </div>
+      <button class="icon-btn" onclick="openBag()" title="Keranjang">
+        <img src="Icon/cart.png" alt="Cart" style="width: 20px; height: 20px;">
+        <span class="badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="bar sub">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Katalog</a>
+    <a href="index.html#promo">Promo</a>
+    <a href="index.html#best">Best Seller</a>
+    <a href="wishlist.html" class="active">Wishlist</a>
+  </div>
+</header>
+
+<section class="wishlist-page">
+  <div class="wishlist-header">
+    <h2>Wishlist Saya</h2>
+    <div class="wishlist-actions">
+      <button class="btn-small" onclick="addAllToCart()">+ Tambah Semua ke Keranjang</button>
+      <button class="btn-small" onclick="clearAllWishlist()">Hapus Semua</button>
+    </div>
+  </div>
+  
+  <div id="wishlistGrid" class="wishlist-grid">
+    <!-- Akan diisi JavaScript -->
+  </div>
+</section>
+
+<!-- Bag Drawer -->
+<div id="bagBackdrop" class="bag-backdrop" onclick="closeBag()"></div>
+<div id="bagDrawer" class="bag-drawer">
+  <div class="bag-head">
+    <div>Tas Belanja</div>
+    <button class="close" onclick="closeBag()">×</button>
+  </div>
+  <div id="bagItems" class="bag-items"></div>
+  <div class="bag-foot">
+    <div class="totals">Total: <span id="bagTotal">Rp 0</span></div>
+    <div class="actions">
+      <button class="btn" onclick="goToCart()">Lihat Keranjang</button>
+    </div>
+  </div>
+  <div class="bag-empty" id="bagEmpty">Tas belanja kosong</div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img class="logo" src="images/logo kicksy.jpeg" alt="Kicksy.id logo" />
+      <p>Destinasi utama sneakerhead Indonesia untuk koleksi brand global dan lokal terbaik.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Belanja</h4>
+      <a href="shop.html">Katalog</a>
+      <a href="index.html#promo">Promo</a>
+      <a href="index.html#best">Best Seller</a>
+    </div>
+    <div class="footer-links">
+      <h4>Bantuan</h4>
+      <a href="index.html#faq">FAQ</a>
+      <a href="tracking.html">Pelacak pesanan</a>
+      <a href="returns.html">Kebijakan Pengembalian</a>
+    </div>
+    <div class="footer-links">
+      <h4>Ikuti Kami</h4>
+      <a href="https://www.instagram.com/iqbalibl01?igsh=MW15OGVkajcyODZ3Mw==">Instagram</a>
+      <a href="https://tiktok.com/@butterscotch_016">TikTok</a>
+      <a href="https://wa.me/62895413318989">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 kicksy.id — All Rights Reserved</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+/* =====================
+   WISHLIST PAGE
+===================== */
+
+// Data produk lengkap (metadata)
+const wishlistProducts = {
+  "Nike Dunk Low Retro": { price: 1549000, image: "images/Nike Dunk Low Retro 1.avif", label: "Black/White" },
+  "Nike Zoom Vomero 5": { price: 2489000, image: "images/Nike Zoom Vomero 5(1).avif", label: "Silver" },
+  "Adidas GAZELLE LO PRO SHOES": { price: 1700000, image: "images/Adidas GAZELLE LO PRO SHOES 1.avif", label: "Black" },
+  "PUMA x SPARCO Speedcat": { price: 1999000, image: "images/PUMA x SPARCO Speedcat OG(1).avif", label: "Black" },
+  "PUMA x SPARCO Speedcat red": { price: 1999000, image: "images/PUMA x SPARCO Speedcat red(1).avif", label: "Red" },
+  "Salomon XT-6 GORE-TEX": { price: 2699000, image: "images/XT-6 GORE-TEX 1.avif", label: "Black/Silver" },
+  "Onitsuka Tiger TOKUTEN": { price: 1499000, image: "images/Onitsuka Tiger TOKUTEN.webp", label: "Best Seller" },
+  "Adidas Handball Spezial": { price: 1699000, image: "images/Adidas Handball Spezial Blue.avif", label: "Blue" },
+  "New Balance 574 trainers": { price: 1399000, image: "images/new-balance-574-trainers.webp", label: "Grey" },
+  "Kanky x STAPLE EXC 01 Gosht White": { price: 540000, image: "images lokal/Kanky_x_STAPLE___EXC_01___Gosht_White_a_1761195600198_resized1024-jpg.webp", label: "Limited" },
+  "Kanky Story Kitadake - Kanky Sportstyle": { price: 440000, image: "images lokal/Kitadake___All_Black_a_1760412869132_resized1024-jpg.webp", label: "All Black" },
+  "CARDINAL SNEAKERS": { price: 269000, image: "images lokal/CARDINAL SNEAKERS.jpeg", label: "Lokal" },
+  "Compas Tribune Mankind Black": { price: 758000, image: "images lokal/Compas Tribune Mankind Black.webp", label: "Black" },
+  "Compas Tribune Away Maroon": { price: 648000, image: "images lokal/Compas Tribune Away Maroon.webp", label: "Maroon" },
+  "DR.KEVIN SNEAKERS": { price: 145000, image: "images lokal/DR.KEVIN SNEAKERS.jpeg", label: "Lokal" },
+  "UNDER ARMOUR ESSENTIAL": { price: 953000, image: "images lokal/UNDER ARMOUR ESSENTIAL.jpeg", label: "Running" },
+  "Brodo Ace Nexus X NAH Serenity White OWS": { price: 599000, image: "images lokal/Brodo Ace Nexus X NAH Serenity White OWS.webp", label: "White" }
+};
+
+// Ambil wishlist dari localStorage
+function getWishlist() {
+  return JSON.parse(localStorage.getItem("wishlist")) || [];
+}
+
+// Simpan wishlist ke localStorage
+function saveWishlist(wishlist) {
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  updateWishlistBadge();
+}
+
+// Update badge di navbar (opsional)
+function updateWishlistBadge() {
+  const wishlist = getWishlist();
+  const badge = document.getElementById("wishlistBadge");
+  if (badge) badge.innerText = wishlist.length;
+}
+
+// Render wishlist ke halaman
+function renderWishlist() {
+  const wishlist = getWishlist();
+  const container = document.getElementById("wishlistGrid");
+  
+  if (!container) return;
+  
+  if (wishlist.length === 0) {
+    container.innerHTML = `
+      <div class="empty-wishlist">
+        <div class="empty-icon">💔</div>
+        <h3>Wishlist Masih Kosong</h3>
+        <p>Yuk tambahkan produk favoritmu ke wishlist!</p>
+        <a href="shop.html" class="btn">Mulai Belanja</a>
+      </div>
+    `;
+    return;
+  }
+  
+  let html = "";
+  wishlist.forEach(productName => {
+    const product = wishlistProducts[productName];
+    if (product) {
+      html += `
+        <div class="wishlist-card" data-name="${productName}">
+          <button class="wishlist-remove-icon" onclick="removeFromWishlist('${productName.replace(/'/g, "\\'")}')">✕</button>
+          <img src="${product.image}" alt="${productName}" onerror="this.src='images/placeholder.png'">
+          <div class="product-name">${productName}</div>
+          <div class="product-price">Rp${product.price.toLocaleString("id-ID")}</div>
+          <div class="product-label">${product.label}</div>
+          <div class="card-buttons">
+            <button class="btn-add" onclick="addToCartFromWishlist('${productName.replace(/'/g, "\\'")}')">🛒 Tambah ke Keranjang</button>
+            <button class="btn-remove" onclick="removeFromWishlist('${productName.replace(/'/g, "\\'")}')">Hapus</button>
+          </div>
+        </div>
+      `;
+    }
+  });
+  
+  container.innerHTML = html;
+}
+
+// Tambah ke keranjang dari wishlist
+function addToCartFromWishlist(productName) {
+  const product = wishlistProducts[productName];
+  if (!product) return;
+  
+  // Pilih size default (40)
+  const selectedSize = "40";
+  
+  cart.push({
+    name: productName,
+    price: product.price,
+    image: product.image,
+    size: selectedSize,
+    qty: 1
+  });
+  
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartBadge();
+  cartFeedback();
+  
+  // Tampilkan notifikasi
+  showToast(`${productName} ditambahkan ke keranjang!`);
+}
+
+// Hapus dari wishlist
+function removeFromWishlist(productName) {
+  let wishlist = getWishlist();
+  wishlist = wishlist.filter(name => name !== productName);
+  saveWishlist(wishlist);
+  renderWishlist();
+  updateWishlistBadge();
+  showToast(`${productName} dihapus dari wishlist`, "warning");
+}
+
+// Hapus semua wishlist
+function clearAllWishlist() {
+  if (confirm("Hapus semua produk dari wishlist?")) {
+    saveWishlist([]);
+    renderWishlist();
+    updateWishlistBadge();
+    showToast("Semua produk dihapus dari wishlist", "warning");
+  }
+}
+
+// Tambah semua ke keranjang
+function addAllToCart() {
+  const wishlist = getWishlist();
+  if (wishlist.length === 0) {
+    showToast("Wishlist kosong!", "error");
+    return;
+  }
+  
+  wishlist.forEach(productName => {
+    const product = wishlistProducts[productName];
+    if (product) {
+      cart.push({
+        name: productName,
+        price: product.price,
+        image: product.image,
+        size: "40",
+        qty: 1
+      });
+    }
+  });
+  
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartBadge();
+  showToast(`${wishlist.length} produk ditambahkan ke keranjang!`);
+}
+
+// Toast notification
+function showToast(message, type = "success") {
+  const existingToast = document.querySelector('.toast-notification');
+  if (existingToast) existingToast.remove();
+  
+  const toast = document.createElement("div");
+  toast.className = "toast-notification";
+  toast.innerHTML = message;
+  toast.style.background = type === "warning" ? "#ff3b3b" : "#00ff99";
+  toast.style.color = type === "warning" ? "#fff" : "#000";
+  
+  document.body.appendChild(toast);
+  
+  setTimeout(() => {
+    if (toast && toast.remove) toast.remove();
+  }, 2000);
+}
+
+// Jalankan saat halaman load
+document.addEventListener("DOMContentLoaded", () => {
+  renderWishlist();
+  updateWishlistBadge();
+});
+</script>
+
+</body>
+</html>
