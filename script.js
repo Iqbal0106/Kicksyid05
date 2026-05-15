@@ -666,3 +666,138 @@ applyCatalogFilter = function() {
 document.addEventListener("DOMContentLoaded", () => {
   updateProductCount();
 });
+/* =====================
+   MOBILE DROPDOWN CLICK
+===================== */
+document.addEventListener("DOMContentLoaded", function() {
+  const dropdown = document.querySelector('.dropdown');
+  if (dropdown && window.innerWidth <= 768) {
+    const dropbtn = dropdown.querySelector('.dropbtn');
+    dropbtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      dropdown.classList.toggle('active');
+    });
+  }
+});
+/* =====================
+   FILTER KATEGORI DARI HOME PAGE
+   ===================== */
+
+// Fungsi untuk membaca parameter URL (contoh: ?category=sneakers atau ?brand=Nike)
+function getUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    category: params.get('category'),
+    brand: params.get('brand')
+  };
+}
+
+// Fungsi untuk menyaring produk berdasarkan kategori/brand
+function filterProductsByUrlParams() {
+  const params = getUrlParams();
+  
+  // Jika tidak ada parameter, tidak perlu filter
+  if (!params.category && !params.brand) return;
+  
+  // Cari semua produk di halaman katalog
+  const tiles = document.querySelectorAll('.catalog-grid .tile');
+  
+  if (tiles.length === 0) return;
+  
+  let visibleCount = 0;
+  
+  tiles.forEach(tile => {
+    const nameEl = tile.querySelector('.name');
+    if (!nameEl) return;
+    
+    const productName = nameEl.innerText.trim();
+    const product = productMetadata[productName];
+    
+    if (!product) {
+      tile.style.display = "";
+      visibleCount++;
+      return;
+    }
+    
+    let show = true;
+    
+    // Filter berdasarkan kategori (jika ada)
+    if (params.category) {
+      if (product.category !== params.category) {
+        show = false;
+      }
+    }
+    
+    // Filter berdasarkan brand (jika ada)
+    if (show && params.brand) {
+      if (product.brand !== params.brand) {
+        show = false;
+      }
+    }
+    
+    tile.style.display = show ? "" : "none";
+    if (show) visibleCount++;
+  });
+  
+  // Update tampilan jumlah produk
+  const countEl = document.getElementById('productCount');
+  if (countEl) countEl.innerText = visibleCount;
+  
+  // Tampilkan chip filter aktif
+  const summaryEl = document.getElementById('filterSummary');
+  if (summaryEl && (params.category || params.brand)) {
+    let filterText = params.category ? `Kategori: ${params.category}` : `Brand: ${params.brand}`;
+    summaryEl.innerHTML = `<span class="filter-chip">${filterText} <button onclick="clearFilterAndReload()">✕</button></span>`;
+  }
+}
+
+// Fungsi untuk membersihkan filter
+function clearFilterAndReload() {
+  window.location.href = 'shop.html';
+}
+
+// Data produk (metadata untuk keperluan filter)
+const productMetadata = {
+  "Nike Dunk Low Retro": { category: "sneakers", brand: "Nike", price: 1549000 },
+  "Nike Zoom Vomero 5": { category: "running", brand: "Nike", price: 2489000 },
+  "Adidas GAZELLE LO PRO SHOES": { category: "originals", brand: "Adidas", price: 1700000 },
+  "PUMA x SPARCO Speedcat": { category: "sneakers", brand: "Puma", price: 1999000 },
+  "PUMA x SPARCO Speedcat red": { category: "sneakers", brand: "Puma", price: 1999000 },
+  "Salomon XT-6 GORE-TEX": { category: "trail", brand: "Salomon", price: 2699000 },
+  "Onitsuka Tiger TOKUTEN": { category: "originals", brand: "Onitsuka Tiger", price: 1499000 },
+  "Adidas Handball Spezial": { category: "originals", brand: "Adidas", price: 1699000 },
+  "New Balance 574 trainers": { category: "sneakers", brand: "New Balance", price: 1399000 },
+  "CONVERSE RUN STAR TRAINER OX SNEAKERS": { category: "sneakers", brand: "Converse", price: 1165000 },
+  "ADIDAS ORIGINALS SAMBA JANE": { category: "originals", brand: "Adidas", price: 1500000 },
+  "Samba Shoes Black": { category: "originals", brand: "Adidas", price: 1800000 },
+  "Kanky x STAPLE EXC 01 Gosht White": { category: "sneakers", brand: "Lokal", price: 540000 },
+  "Kanky Story Kitadake - Kanky Sportstyle": { category: "sneakers", brand: "Lokal", price: 440000 },
+  "CARDINAL SNEAKERS": { category: "sneakers", brand: "Lokal", price: 269000 },
+  "Compas Tribune Mankind Black": { category: "sneakers", brand: "Lokal", price: 758000 },
+  "Compas Tribune Away Maroon": { category: "sneakers", brand: "Lokal", price: 648000 },
+  "DR.KEVIN SNEAKERS": { category: "sneakers", brand: "Lokal", price: 145000 },
+  "UNDER ARMOUR ESSENTIAL": { category: "running", brand: "Lokal", price: 953000 },
+  "Brodo Ace Nexus X NAH Serenity White OWS": { category: "sneakers", brand: "Lokal", price: 599000 }
+};
+
+// Jalankan filter saat halaman shop.html selesai loading
+document.addEventListener("DOMContentLoaded", function() {
+  // Cek apakah ini halaman shop (ada .catalog-grid)
+  if (document.querySelector('.catalog-grid')) {
+    filterProductsByUrlParams();
+  }
+});
+
+// Untuk mobile dropdown (opsional)
+document.addEventListener("DOMContentLoaded", function() {
+  const dropdown = document.querySelector('.dropdown');
+  if (dropdown && window.innerWidth <= 768) {
+    const dropbtn = dropdown.querySelector('.dropbtn');
+    if (dropbtn) {
+      dropbtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        dropdown.classList.toggle('active');
+      });
+    }
+  }
+});

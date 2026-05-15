@@ -3670,3 +3670,98 @@ footer {
     width: 100%;
   }
 }
+/* =====================
+   DROPDOWN KATEGORI (seperti Nike)
+===================== */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--card);
+  min-width: 200px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  z-index: 1000;
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.dropdown-content a {
+  color: var(--text);
+  padding: 0.7rem 1.2rem;
+  text-decoration: none;
+  display: block;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  margin-right: 0 !important;
+}
+
+.dropdown-content a:hover {
+  background: rgba(0,255,153,0.1);
+  color: var(--accent);
+}
+
+.dropdown-content hr {
+  margin: 0.3rem 0;
+  border-color: rgba(255,255,255,0.05);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Untuk mobile: dropdown jadi click (bukan hover) */
+@media (max-width: 768px) {
+  .dropdown-content {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background: rgba(255,255,255,0.03);
+    margin-top: 0.5rem;
+  }
+  
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+  
+  .dropbtn {
+    pointer-events: auto;
+  }
+}
+.category-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.chip {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.chip:hover {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
