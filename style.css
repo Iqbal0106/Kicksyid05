@@ -4283,3 +4283,38 @@ footer {
   font-weight: 600;
   cursor: pointer;
 }
+/* Glassmorphism Effect */
+.header {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card, .product-card, .tile, .filter-sidebar {
+  background: rgba(24, 24, 24, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card:hover, .product-card:hover, .tile:hover {
+  border-color: rgba(0, 255, 153, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 255, 153, 0.1);
+}
+/* 3D Hover Effect */
+.card, .product-card, .tile {
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  transform-style: preserve-3d;
+}
+
+.card:hover, .product-card:hover, .tile:hover {
+  transform: translateY(-8px) rotateX(5deg) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover img, .product-card:hover img, .tile:hover img {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+img {
+  transition: transform 0.4s ease;
+}
