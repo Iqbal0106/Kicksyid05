@@ -853,3 +853,189 @@ function showToast(message, type = "success") {
     if (toast && toast.remove) toast.remove();
   }, 2000);
 }
+/* =====================
+   STOCK MANAGEMENT INTEGRATION
+   ===================== */
+
+// Load stock data
+function loadStockData() {
+  const script = document.createElement('script');
+  script.src = 'stock-data.js';
+  document.head.appendChild(script);
+}
+
+// Cek stok sebelum add to cart
+function checkStockAndAddToCart(productName, price, image) {
+  if (!selectedSize) {
+    alert("Pilih size dulu 👟");
+    return false;
+  }
+  
+  const stock = getProductStock(productName, selectedSize);
+  
+  if (!stock.available) {
+    alert(`Maaf, ukuran ${selectedSize} untuk ${productName} sedang habis! 😢`);
+    return false;
+  }
+  
+  if (stock.isLow) {
+    if (!confirm(`Stok ukuran ${selectedSize} tersisa ${stock.stock} pcs. Lanjutkan pembelian?`)) {
+      return false;
+    }
+  }
+  
+  // Tambah ke keranjang
+  cart.push({
+    name: productName,
+    price: price,
+    image: image,
+    size: selectedSize,
+    qty: 1
+  });
+  
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartBadge();
+  cartFeedback();
+  return true;
+}
+
+// Override addToCart function (ganti dengan yang ada pengecekan stok)
+const originalAddToCart = window.addToCart;
+window.addToCart = function(name, price, image) {
+  checkStockAndAddToCart(name, price, image);
+};
+
+// Update tampilan stok di card produk (home & shop)
+function updateStockDisplay() {
+  // Untuk product-card di slider
+  document.querySelectorAll('.product-card').forEach(card => {
+    const nameEl = card.querySelector('h3');
+    if (!nameEl) return;
+    const productName = nameEl.innerText;
+    const stock = getProductStock(productName);
+    
+    // Hapus stock badge lama
+    const oldBadge = card.querySelector('.stock-badge');
+    if (oldBadge) oldBadge.remove();
+    
+    // Tambah stock badge
+    const badge = document.createElement('div');
+    badge.className = `stock-badge ${stock.isOut ? 'stock-out' : (stock.isLow ? 'stock-low' : 'stock-available')}`;
+    
+    if (stock.isOut) {
+      badge.innerText = '⛔ Habis';
+      // Disable add to cart button
+      const btn = card.querySelector('button');
+      if (btn) btn.disabled = true;
+    } else if (stock.isLow) {
+      badge.innerText = `⚠️ Stok ${stock.stock} tersisa`;
+    } else {
+      badge.innerText = '✓ Tersedia';
+    }
+    
+    card.querySelector('.price')?.insertAdjacentElement('afterend', badge);
+  });
+  
+  // Untuk card biasa
+  document.querySelectorAll('.card').forEach(card => {
+    const titleEl = card.querySelector('.title');
+    if (!titleEl) return;
+    const productName = titleEl.innerText;
+    const stock = getProductStock(productName);
+    
+    const oldBadge = card.querySelector('.stock-badge');
+    if (oldBadge) oldBadge.remove();
+    
+    const badge = document.createElement('div');
+    badge.className = `stock-badge ${stock.isOut ? 'stock-out' : (stock.isLow ? 'stock-low' : 'stock-available')}`;
+    
+    if (stock.isOut) {
+      badge.innerText = '⛔ Habis';
+      const btn = card.querySelector('.btn');
+      if (btn) btn.disabled = true;
+    } else if (stock.isLow) {
+      badge.innerText = `⚠️ Stok ${stock.stock} tersisa`;
+    } else {
+      badge.innerText = '✓ Tersedia';
+    }
+    
+    card.querySelector('.price')?.insertAdjacentElement('afterend', badge);
+  });
+}
+
+// Update tampilan stok di halaman detail produk
+function updateDetailStock(productName) {
+  const sizeBtns = document.querySelectorAll('.size-options button');
+  let hasAvailableSize = false;
+  
+  sizeBtns.forEach(btn => {
+    const size = btn.innerText;
+    const stock = getProductStock(productName, size);
+    
+    if (stock.isOut) {
+      btn.classList.add('out-of-stock');
+      btn.disabled = true;
+    } else {
+      btn.classList.remove('out-of-stock');
+      btn.disabled = false;
+      hasAvailableSize = true;
+    }
+    
+    // Update tooltip dengan info stok
+    btn.title = stock.isOut ? 'Habis' : `Stok: ${stock.stock}`;
+  });
+  
+  // Update stock info panel
+  const stockInfoDiv = document.querySelector('.stock-info');
+  if (stockInfoDiv) {
+    const selectedSizeEl = document.querySelector('.size-options button.active');
+    const selectedSize = selectedSizeEl ? selectedSizeEl.innerText : '40';
+    const stock = getProductStock(productName, selectedSize);
+    
+    const totalStock = Object.values(stockDatabase[productName]?.sizes || {}).reduce((a,b) => a+b, 0);
+    const maxStock = Math.max(...Object.values(stockDatabase[productName]?.sizes || {0:0}));
+    const progressPercent = totalStock / maxStock * 100;
+    
+    stockInfoDiv.innerHTML = `
+      <div class="stock-info-item">
+        <span class="stock-label">Stok Tersedia:</span>
+        <span class="stock-value ${stock.isLow ? 'stock-low' : (stock.isOut ? 'stock-out' : '')}">
+          ${stock.isOut ? 'Habis' : stock.stock + ' pcs'}
+        </span>
+      </div>
+      <div class="stock-progress">
+        <div class="stock-progress-bar ${stock.isLow ? 'low' : (stock.isOut ? 'out' : '')}" 
+             style="width: ${Math.min(100, progressPercent)}%"></div>
+      </div>
+    `;
+  }
+  
+  // Disable add to cart button jika semua size habis
+  const addBtn = document.querySelector('.buy-actions .btn');
+  if (addBtn) {
+    if (!hasAvailableSize) {
+      addBtn.disabled = true;
+      addBtn.classList.add('btn-disabled');
+      addBtn.innerText = 'Stok Habis';
+    } else {
+      addBtn.disabled = false;
+      addBtn.classList.remove('btn-disabled');
+      addBtn.innerText = 'Add to Cart';
+    }
+  }
+}
+
+// Panggil updateStockDisplay saat halaman dimuat
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(updateStockDisplay, 100);
+});
+
+// Untuk halaman product detail
+if (window.location.pathname.includes('product.html')) {
+  document.addEventListener("DOMContentLoaded", () => {
+    const product = JSON.parse(localStorage.getItem("selectedProduct"));
+    if (product) {
+      setTimeout(() => updateDetailStock(product.name), 100);
+    }
+  });
+}

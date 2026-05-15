@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Stok | Kicksy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="gradient-bg">
+  <section style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+    <h2>Manajemen Stok Produk</h2>
+    <div class="admin-stock-panel">
+      <div class="admin-stock-table">
+        <table id="stockTable">
+          <thead>
+            <tr><th>Produk</th><th>40</th><th>41</th><th>42</th><th>43</th><th>44</th><th>45</th><th>Aksi</th></tr>
+          </thead>
+          <tbody id="stockTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  <script src="stock-data.js"></script>
+  <script>
+    function renderStockTable() {
+      const tbody = document.getElementById('stockTableBody');
+      tbody.innerHTML = '';
+      
+      Object.keys(stockDatabase).forEach(productName => {
+        const product = stockDatabase[productName];
+        const row = tbody.insertRow();
+        row.insertCell(0).innerText = productName;
+        
+        [40,41,42,43,44,45].forEach(size => {
+          const cell = row.insertCell();
+          const input = document.createElement('input');
+          input.type = 'number';
+          input.value = product.sizes[size] || 0;
+          input.min = 0;
+          input.style.width = '70px';
+          input.dataset.product = productName;
+          input.dataset.size = size;
+          cell.appendChild(input);
+        });
+        
+        const actionCell = row.insertCell();
+        const saveBtn = document.createElement('button');
+        saveBtn.innerText = 'Simpan';
+        saveBtn.onclick = () => {
+          const inputs = row.querySelectorAll('input');
+          inputs.forEach(input => {
+            const size = parseInt(input.dataset.size);
+            const newStock = parseInt(input.value) || 0;
+            stockDatabase[productName].sizes[size] = newStock;
+          });
+          localStorage.setItem("stockDatabase", JSON.stringify(stockDatabase));
+          alert(`Stok ${productName} berhasil diupdate!`);
+        };
+        actionCell.appendChild(saveBtn);
+      });
+    }
+    
+    renderStockTable();
+  </script>
+</body>
+</html>
